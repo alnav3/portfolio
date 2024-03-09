@@ -15,6 +15,6 @@ ARG APP_NAME
 ENV APP_NAME=$APP_NAME
 WORKDIR /root/
 COPY --from=build /$APP_NAME ./
-COPY --from=build /style ./style
+COPY --from=build /app/style ./style
 CMD ./$APP_NAME
 
