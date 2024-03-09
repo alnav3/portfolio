@@ -2,9 +2,7 @@ package main
 
 import (
 	"front"
-	"io"
 	"net/http"
-
 	"github.com/a-h/templ"
 )
 
@@ -28,26 +26,8 @@ func main() {
 		templ.Handler(c).ServeHTTP(w, r)
 	})
 
-	// Manejador para la ruta "/style/tailwind.css"
-	http.HandleFunc("/style/tailwind.css", func(w http.ResponseWriter, r *http.Request) {
-		// Abre el archivo tailwind.css
-		cssFile, err := http.Dir("./style").Open("tailwind.css")
-		if err != nil {
-			http.Error(w, "Archivo no encontrado", http.StatusNotFound)
-			return
-		}
-		defer cssFile.Close()
-
-		// Configura el encabezado de respuesta
-		w.Header().Set("Content-Type", "text/css")
-
-		// Copia el contenido del archivo al cuerpo de la respuesta
-		_, err = io.Copy(w, cssFile)
-		if err != nil {
-			http.Error(w, "Error al copiar el archivo", http.StatusInternalServerError)
-			return
-		}
-	})
+    fs := http.FileServer(http.Dir("./style"))
+    http.Handle("/style/", http.StripPrefix("/style/", fs))
 
     println("Servidor iniciado en el puerto 8420")
 
