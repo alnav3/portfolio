@@ -14,7 +14,7 @@ FROM alpine:latest as production
 ARG APP_NAME
 ENV APP_NAME=$APP_NAME
 WORKDIR /root/
-COPY --from=build /app/$APP_NAME ./
-COPY --from=build /app/style ./style
+COPY --from=build /$APP_NAME ./
+COPY --from=build /style ./style
 CMD ./$APP_NAME
 
