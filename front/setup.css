@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bg {
+    @apply bg-gray-100 dark:bg-gray-900
+}
+
+.button-primary {
+    @apply bg-white px-4 py-1 text-sm dark:text-gray-950 font-semibold rounded-full hover:text-white hover:bg-blue-900 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2
+}
+
+.active-indicator {
+    @apply text-white bg-blue-900 border-transparent;
+}
+
+.active {
+  @apply bg-blue-900 border-transparent text-white;
+  @apply transition-colors duration-300 ease-in-out;
+}
+
