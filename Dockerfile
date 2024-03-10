@@ -21,6 +21,7 @@ WORKDIR /home/appuser
 
 COPY --from=build /main ./
 COPY --from=build /app/style ./style
+COPY --from=build /app/img ./img
 
 # Use an absolute path for CMD
 CMD ["/home/appuser/main"]
