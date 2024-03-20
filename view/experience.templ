@@ -1,4 +1,4 @@
-package front
+package view
 
 type experience struct {
     name string
@@ -8,28 +8,28 @@ type experience struct {
 }
 
 var experiences = []experience{
-    {name:"Capgemini", date:"January, 2021", position:"Junior backend developer", description:"Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."},
-    {name:"Cleverpy", date:"February, 2023", position:"Senior backend developer", description:"Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."},
     {name:"Alvea", date:"July, 2023", position:"Senior backend developer", description:"Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."},
+    {name:"Cleverpy", date:"February, 2023", position:"Senior backend developer", description:"Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."},
+    {name:"Capgemini", date:"January, 2021", position:"Junior backend developer", description:"Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."},
 }
 
 templ Experience() {
     <div id="navbar-content" class="flex flex-col items-center pt-8 mt-2 mb-8">
         <!-- Línea Vertical -->
         <div class="relative border-l-2 border-gray-500">
+        <h3 class="text-sm font-semibold mx-3 mb-3 text-left dark:text-white">Present</h3>
             <!-- Elemento de la Línea de Tiempo -->
             for _, experience := range experiences {
-                
+
                 <div class="flex flex-col items-start">
-                    <h3 class="text-sm font-semibold mx-3 mb-3 text-left dark:text-white">{experience.date}</h3>
                     <div class="relative max-w-xs md:max-w-xl bg-gray-400 p-4 text-left ml-5 mb-3 dark:bg-gray-800 rounded-lg shadow min-w-full">
                         <p class=" text-xl font-bold  add title and description, as well as a div containertracking-tighter sm:text-2xl dark:text-white">{experience.name}</p>
                         <p class="text-gray-500 dark:text-gray-400">{experience.position}</p>
                         <p class="text-sm font-semibold text-gray-800 dark:text-white">{experience.description}</p>
                     </div>
+                    <h3 class="text-sm font-semibold mx-3 mb-3 text-left dark:text-white">{experience.date}</h3>
                 </div>
             }
-            <h3 class="text-sm font-semibold mx-3 mb-3 text-left dark:text-white">Present</h3>
         </div>
     </div>
 }

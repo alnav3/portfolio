@@ -1,4 +1,4 @@
-package front
+package view
 
 type navItems struct {
     name string
@@ -8,7 +8,7 @@ type navItems struct {
 
 var items = []navItems{
     {name:"Projects", id:"projects"},
-    {name:"Experience", id:"about"},
+    {name:"Experience", id:"experience"},
 }
 
 func printEndpoint(id string) string {
@@ -23,15 +23,16 @@ templ Navbar(position int, child templ.Component) {
                 for i, item := range items {
                 <li class="flex-1">
                     if i != position {
-                        <button id={item.id} class="flex items-center justify-center w-full h-full 
-                                dark:text-white hover:bg-gray-700 rounded-lg p-2 transition duration-300 ease-in-out"
-                                hx-get={printEndpoint(item.id)} hx-target="#navbar" hx-indicator="#indicator">
+                        <button id={item.id} class="flex items-center justify-center w-full h-full
+                                dark:text-white hover:bg-gray-700 rounded-lg p-2 font-bold"
+                                hx-get={printEndpoint(item.id)} hx-target="#navbar">
                             {item.name}
                         </button>
                     }
                     else {
-                        <button id={item.id} class="flex 
-                            items-center justify-center w-full h-full rounded-lg p-2 active"
+                        <button id={item.id} class="flex
+                            items-center justify-center w-full h-full rounded-lg p-2 bg-blue-900 border-transparent
+                            text-white font-bold"
                             hx-get={printEndpoint(item.id)} hx-target="#navbar">
                             {item.name}
                         </button>

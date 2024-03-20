@@ -1,0 +1,144 @@
+package view
+
+import "models"
+
+
+var projects = []models.Project{
+    {Title:"Portfolio website", Description:"This is the portfolio website of Alex Navia. I am currently working on it.", Languages:[]string{"HTML", "Tailwind", "Go"}},
+    {Title:"HTML", Description:"This is a description", Languages:[]string{"HTML", "Tailwind", "Go"}},
+    {Title:"Tailwind", Description:"This is a description", Languages:[]string{"HTML", "Tailwind", "Go"}},
+}
+
+var profile = models.Profile {
+    Name:"Alex Navia",
+    JobTitle:"Software Developer",
+    Bio:"Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js.",
+}
+
+var projectBio = models.ProjectBio{
+    Title:"Projects",
+    Description:"",
+}
+var infoBio = models.InfoBio{
+    Introduction: "Hi there! I'm Alex Navia Santos, a backend developer with a flair for Golang, Java, and crafting sleek web interfaces using HTML with Tailwind CSS. My focus is on building efficient, scalable backends in Spring Boot. Committed to lifelong learning, I thrive on enhancing my skills to stay at the forefront of backend technologies.",
+    Skills: []models.SkillCategory{
+        {
+            Title: "Languages",
+            Skills: []models.Skill{
+                {Name: "Go", IconURL: "/img/icons/golang.svg"},
+                {Name: "Java", IconURL: "/img/icons/java.svg"},
+                {Name: "HTML", IconURL: "/img/icons/html.svg"},
+                {Name: "CSS", IconURL: "/img/icons/css.svg"},
+            },
+        },
+        {
+            Title: "Frameworks",
+            Skills: []models.Skill{
+                {Name: "Spring", IconURL: "/img/icons/spring.svg"},
+                {Name: "Tailwind", IconURL: "/img/icons/tailwind.svg"},
+            },
+        },
+        {
+            Title: "Tech Stack",
+            Skills: []models.Skill{
+                {Name: "Git", IconURL: "/img/icons/git.svg"},
+                {Name: "Docker", IconURL: "/img/icons/docker.svg"},
+                {Name: "Neovim", IconURL: "/img/icons/neovim.svg"},
+
+            },
+        },
+    },
+}
+
+// change htmx CDN by the js file in the future for better security
+templ Base(children ...templ.Component) {
+    <!doctype html>
+    <html>
+        <head>
+            <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <link href="/style/tailwind.css" rel="stylesheet"/>
+        </head>
+        <body class="bg">
+            for _, child := range children {
+                @child
+            }
+            <!-- htmx -->
+            <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+        </body>
+    </html>
+}
+
+templ HomePage() {
+    @ProfileInfo(profile)
+    @LanguageBio(infoBio)
+    @Navbar(0, Projects())
+}
+
+templ ProfileInfo(profile models.Profile) {
+    <div class="sm:flex space-x-10 md:space-x-20 justify-center">
+        <div class="hidden md:flex justify-end py-14">
+            <img class="max-w-32 max-h-32 dark:text-white rounded-full mx-auto sm:mx-0 sm:shrink-0" src="/img/profile.jpg" alt="Profile photo" />
+        </div>
+        <div class="py-10 space-y-3 max-w-xs lg:max-w-md sm:col-span-2 my-0 md:mx-11 mx-4">
+            <p class="text-3xl font-bold tracking-tighter sm:text-4xl dark:text-white">{profile.Name}</p>
+            <p class="text-gray-500 dark:text-gray-400">{profile.JobTitle}</p>
+            <p class="text-gray-500 dark:text-gray-400 mr-5">{profile.Bio}</p>
+        </div>
+    </div>
+}
+
+//TODO: style it better as well as for light mode
+templ Projects() {
+    <div id="navbar-content" class="max-w-sm md:max-w-xl lg:max-w-2xl mx-auto mt-8">
+        <p class="text-3xl font-bold text-center sm:text-4xl dark:text-white">{projectBio.Title}</p>
+        for _, project := range projects {
+            <a href="https://www.github.com" class="py-4 flex sm:grid-cols-3 max-w-sm md:max-w-xl lg:max-w-2xl mx-auto my-5 dark:bg-gray-800 rounded-lg shadow space-x-5">
+                <div class="space-y-3 sm:col-span-2 my-0 mx-11">
+                    <p class=" text-xl font-bold  add title and description, as well as a div containertracking-tighter sm:text-2xl dark:text-white">{project.Title}</p>
+                    <p class="text-gray-500 dark:text-gray-400">{project.Description}</p>
+                    @languageTags(project.Languages)
+                </div>
+            </a>
+        }
+    </div>
+}
+
+//TODO: change color for light mode
+templ languageTags(languages []string){
+    <div class="flex flex-wrap gap-5">
+        for _, language := range languages {
+            <span class="px-3 py-1 text-xs dark:text-gray-950 bg-gray-200 rounded-full">#{language}</span>
+        }
+    </div>
+}
+
+templ LanguageBio(info models.InfoBio) {
+    <div class="flex w-full space-x-20 justify-center dark:bg-gray-800 sm:col-span-2 my-0">
+        <div class="flex flex-col gap-12 w-5/6 pt-5 pb-20 justify-center mx-auto">
+            <div class="flex flex-col gap-3 mx-auto max-w-fit">
+                <h2 class="text-3xl leading-10 font-bold text-gray-700 dark:text-white text-left">About<span class="text-primary">.</span></h2>
+                <p class="text-gray-500 dark:text-gray-400 text-xl max-w-4xl pb-10">{info.Introduction}</p>
+                @SkillsCategoryTemplate(info.Skills)
+            </div>
+        </div>
+    </div>
+}
+templ SkillsCategoryTemplate(stack []models.SkillCategory) {
+    <div class="flex flex-col gap-12 lg:flex-row lg:gap-20">
+        for _, category := range stack {
+            <div class="flex flex-col gap-5">
+                <h3 class="text-2xl font-medium dark:text-white">{category.Title}</h3>
+                <div class="flex flex-wrap gap-6">
+                    for _, skill := range category.Skills {
+                        <div class="flex flex-col items-center justify-center gap-1">
+                            <img src={skill.IconURL} alt={skill.Name} class="h-12 select-none"></img>
+                            <p class="text-center text-gray-500 dark:text-gray-400">{skill.Name}</p>
+                        </div>
+                    }
+                </div>
+            </div>
+        }
+    </div>
+}
+
