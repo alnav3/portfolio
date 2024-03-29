@@ -287,7 +287,7 @@ func languageTags(languages []string) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		for _, language := range languages {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<span class=\"px-3 py-1 text-xs dark:text-gray-950 bg-gray-300 rounded-full\">#")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<span class=\"px-3 py-1 text-xs dark:text-gray-950 bg-gray-100 rounded-full\">#")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
