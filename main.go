@@ -27,12 +27,18 @@ func main() {
 		templ.Handler(c).ServeHTTP(w, r)
 	})
 
+    // Manejador para la ruta "/experience"
+	http.HandleFunc("/homelab", func(w http.ResponseWriter, r *http.Request) {
+		c := view.Navbar(2, view.Homelab())
+		templ.Handler(c).ServeHTTP(w, r)
+	})
+
     handleDirectory("/style/", "/img/")
 
-    println("Servidor iniciado en el puerto 42069")
+    println("Servidor iniciado en el puerto 80")
 
-	// Inicia el servidor HTTP en el puerto 42069
-	err := http.ListenAndServe(":42069", nil)
+	// Inicia el servidor HTTP en el puerto 80
+	err := http.ListenAndServe(":80", nil)
 	if err != nil {
 		panic(err)
 	}

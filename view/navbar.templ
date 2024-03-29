@@ -9,6 +9,7 @@ type navItems struct {
 var items = []navItems{
     {name:"Projects", id:"projects"},
     {name:"Experience", id:"experience"},
+    {name:"Homelab", id:"homelab"},
 }
 
 func printEndpoint(id string) string {
@@ -18,7 +19,7 @@ func printEndpoint(id string) string {
 
 templ Navbar(position int, child templ.Component) {
     <div id="navbar">
-        <nav class="sm:flex space-x-10 md:space-x-20 mx-auto max-w-3xl rounded-2xl dark:bg-gray-800 mt-10 min-h-12">
+        <nav class="sm:flex space-x-10 md:space-x-20 mx-auto max-w-4xl rounded-2xl dark:bg-gray-800 mt-10 min-h-12">
             <ul class="flex justify-around items-center w-full">
                 for i, item := range items {
                 <li class="flex-1">

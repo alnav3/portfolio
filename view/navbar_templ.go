@@ -18,6 +18,7 @@ type navItems struct {
 var items = []navItems{
 	{name: "Projects", id: "projects"},
 	{name: "Experience", id: "experience"},
+	{name: "Homelab", id: "homelab"},
 }
 
 func printEndpoint(id string) string {
@@ -37,7 +38,7 @@ func Navbar(position int, child templ.Component) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"navbar\"><nav class=\"sm:flex space-x-10 md:space-x-20 mx-auto max-w-3xl rounded-2xl dark:bg-gray-800 mt-10 min-h-12\"><ul class=\"flex justify-around items-center w-full\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"navbar\"><nav class=\"sm:flex space-x-10 md:space-x-20 mx-auto max-w-4xl rounded-2xl dark:bg-gray-800 mt-10 min-h-12\"><ul class=\"flex justify-around items-center w-full\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -70,7 +71,7 @@ func Navbar(position int, child templ.Component) templ.Component {
 				var templ_7745c5c3_Var2 string
 				templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(item.name)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 28, Col: 38}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 29, Col: 38}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 				if templ_7745c5c3_Err != nil {
@@ -104,7 +105,7 @@ func Navbar(position int, child templ.Component) templ.Component {
 				var templ_7745c5c3_Var3 string
 				templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(item.name)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 36, Col: 38}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 37, Col: 38}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 				if templ_7745c5c3_Err != nil {
