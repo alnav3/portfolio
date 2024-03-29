@@ -16,8 +16,8 @@ type navItems struct {
 }
 
 var items = []navItems{
-	{name: "Projects", id: "projects"},
 	{name: "Experience", id: "experience"},
+	{name: "Projects", id: "projects"},
 	{name: "Homelab", id: "homelab"},
 }
 
@@ -38,7 +38,7 @@ func Navbar(position int, child templ.Component) templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"navbar\"><nav class=\"sm:flex space-x-10 md:space-x-20 mx-auto max-w-4xl rounded-2xl dark:bg-gray-800 mt-10 min-h-12\"><ul class=\"flex justify-around items-center w-full\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"navbar\"><nav class=\"sm:flex space-x-10 md:space-x-20 mx-auto max-w-4xl rounded-2xl bg-gray-300 dark:bg-gray-800 mt-10 min-h-12\"><ul class=\"flex justify-around items-center w-full\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -56,7 +56,7 @@ func Navbar(position int, child templ.Component) templ.Component {
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"flex items-center justify-center w-full h-full\n                                dark:text-white hover:bg-gray-700 rounded-lg p-2 font-bold\" hx-get=\"")
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"flex items-center justify-center w-full h-full\n                                dark:text-white hover:bg-gray-700 hover:text-white rounded-lg p-2 font-bold\" hx-get=\"")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}

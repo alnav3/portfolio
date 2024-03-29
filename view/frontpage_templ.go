@@ -114,7 +114,7 @@ func HomePage() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = Navbar(0, Projects()).Render(ctx, templ_7745c5c3_Buffer)
+		templ_7745c5c3_Err = Navbar(0, Experience()).Render(ctx, templ_7745c5c3_Buffer)
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -151,7 +151,7 @@ func ProfileInfo(profile models.Profile) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p><p class=\"text-gray-500 dark:text-gray-400\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p><p class=\"text-gray-600 dark:text-gray-400\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -164,7 +164,7 @@ func ProfileInfo(profile models.Profile) templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p><p class=\"text-gray-500 dark:text-gray-400 mr-5\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p><p class=\"text-gray-600 dark:text-gray-400 mr-5\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
@@ -188,7 +188,6 @@ func ProfileInfo(profile models.Profile) templ.Component {
 	})
 }
 
-// TODO: style it better as well as for light mode
 func Projects() templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
@@ -209,7 +208,7 @@ func Projects() templ.Component {
 		var templ_7745c5c3_Var8 string
 		templ_7745c5c3_Var8, templ_7745c5c3_Err = templ.JoinStringErrs(projectBio.Title)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/frontpage.templ`, Line: 93, Col: 95}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/frontpage.templ`, Line: 92, Col: 95}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var8))
 		if templ_7745c5c3_Err != nil {
@@ -220,27 +219,27 @@ func Projects() templ.Component {
 			return templ_7745c5c3_Err
 		}
 		for _, project := range projects {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"https://www.github.com\" class=\"py-4 flex sm:grid-cols-3 max-w-sm md:max-w-xl lg:max-w-3xl mx-auto my-5 dark:bg-gray-800 rounded-lg shadow space-x-5\"><div class=\"space-y-3 sm:col-span-2 my-0 mx-11\"><p class=\" text-xl font-bold  add title and description, as well as a div containertracking-tighter sm:text-2xl dark:text-white\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"https://www.github.com\" class=\"py-4 flex sm:grid-cols-3 max-w-sm md:max-w-xl lg:max-w-3xl mx-auto my-5 bg-gray-300  dark:bg-gray-800 rounded-lg shadow space-x-5\"><div class=\"space-y-3 sm:col-span-2 my-0 mx-11\"><p class=\" text-xl font-bold sm:text-2xl dark:text-white\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var9 string
 			templ_7745c5c3_Var9, templ_7745c5c3_Err = templ.JoinStringErrs(project.Title)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/frontpage.templ`, Line: 97, Col: 163}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/frontpage.templ`, Line: 96, Col: 92}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var9))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p><p class=\"text-gray-500 dark:text-gray-400\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p><p class=\"text-gray-600 dark:text-gray-400\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var10 string
 			templ_7745c5c3_Var10, templ_7745c5c3_Err = templ.JoinStringErrs(project.Description)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/frontpage.templ`, Line: 98, Col: 84}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/frontpage.templ`, Line: 97, Col: 84}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var10))
 			if templ_7745c5c3_Err != nil {
@@ -270,7 +269,6 @@ func Projects() templ.Component {
 	})
 }
 
-// TODO: change color for light mode
 func languageTags(languages []string) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
@@ -289,14 +287,14 @@ func languageTags(languages []string) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		for _, language := range languages {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<span class=\"px-3 py-1 text-xs dark:text-gray-950 bg-gray-200 rounded-full\">#")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<span class=\"px-3 py-1 text-xs dark:text-gray-950 bg-gray-300 rounded-full\">#")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var12 string
 			templ_7745c5c3_Var12, templ_7745c5c3_Err = templ.JoinStringErrs(language)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/frontpage.templ`, Line: 110, Col: 98}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/frontpage.templ`, Line: 108, Col: 98}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var12))
 			if templ_7745c5c3_Err != nil {
@@ -331,14 +329,14 @@ func LanguageBio(info models.InfoBio) templ.Component {
 			templ_7745c5c3_Var13 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"flex w-full space-x-20 justify-center dark:bg-gray-800 sm:col-span-2 my-0\"><div class=\"flex flex-col gap-12 w-5/6 pt-5 pb-20 justify-center mx-auto\"><div class=\"flex flex-col gap-3 mx-auto max-w-fit\"><h2 class=\"text-3xl leading-10 font-bold text-gray-700 dark:text-white text-left\">About<span class=\"text-primary\">.</span></h2><p class=\"text-gray-500 dark:text-gray-400 text-xl max-w-4xl pb-10\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"flex w-full space-x-20 justify-center bg-gray-300 dark:bg-gray-800 sm:col-span-2 my-0\"><div class=\"flex flex-col gap-12 w-5/6 pt-5 pb-20 justify-center mx-auto\"><div class=\"flex flex-col gap-3 mx-auto max-w-fit\"><h2 class=\"text-3xl leading-10 font-bold text-gray-800 dark:text-white text-left\">About<span class=\"text-primary\">.</span></h2><p class=\"text-gray-600 dark:text-gray-400 text-xl max-w-4xl pb-10\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		var templ_7745c5c3_Var14 string
 		templ_7745c5c3_Var14, templ_7745c5c3_Err = templ.JoinStringErrs(info.Introduction)
 		if templ_7745c5c3_Err != nil {
-			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/frontpage.templ`, Line: 120, Col: 102}
+			return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/frontpage.templ`, Line: 118, Col: 102}
 		}
 		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var14))
 		if templ_7745c5c3_Err != nil {
@@ -388,7 +386,7 @@ func SkillsCategoryTemplate(stack []models.SkillCategory) templ.Component {
 			var templ_7745c5c3_Var16 string
 			templ_7745c5c3_Var16, templ_7745c5c3_Err = templ.JoinStringErrs(category.Title)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/frontpage.templ`, Line: 130, Col: 80}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/frontpage.templ`, Line: 128, Col: 80}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var16))
 			if templ_7745c5c3_Err != nil {
@@ -415,14 +413,14 @@ func SkillsCategoryTemplate(stack []models.SkillCategory) templ.Component {
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
-				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"h-12 select-none\"><p class=\"text-center text-gray-500 dark:text-gray-400\">")
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" class=\"h-12 text-gray-600 select-none\"><p class=\"text-center text-gray-600 dark:text-gray-400\">")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 				var templ_7745c5c3_Var17 string
 				templ_7745c5c3_Var17, templ_7745c5c3_Err = templ.JoinStringErrs(skill.Name)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/frontpage.templ`, Line: 135, Col: 95}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/frontpage.templ`, Line: 133, Col: 95}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var17))
 				if templ_7745c5c3_Err != nil {

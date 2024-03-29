@@ -72,7 +72,7 @@ templ Base(children ...templ.Component) {
 templ HomePage() {
     @ProfileInfo(profile)
     @LanguageBio(infoBio)
-    @Navbar(0, Projects())
+    @Navbar(0, Experience())
 }
 
 templ ProfileInfo(profile models.Profile) {
@@ -82,21 +82,20 @@ templ ProfileInfo(profile models.Profile) {
         </div>
         <div class="py-10 space-y-3 max-w-xs lg:max-w-md sm:col-span-2 my-0 md:mx-11 mx-4">
             <p class="text-3xl font-bold tracking-tighter sm:text-4xl dark:text-white">{profile.Name}</p>
-            <p class="text-gray-500 dark:text-gray-400">{profile.JobTitle}</p>
-            <p class="text-gray-500 dark:text-gray-400 mr-5">{profile.Bio}</p>
+            <p class="text-gray-600 dark:text-gray-400">{profile.JobTitle}</p>
+            <p class="text-gray-600 dark:text-gray-400 mr-5">{profile.Bio}</p>
         </div>
     </div>
 }
 
-//TODO: style it better as well as for light mode
 templ Projects() {
     <div id="navbar-content" class="max-w-sm md:max-w-xl lg:max-w-3xl mx-auto mt-8">
         <p class="text-3xl font-bold text-center sm:text-4xl dark:text-white">{projectBio.Title}</p>
         for _, project := range projects {
-            <a href="https://www.github.com" class="py-4 flex sm:grid-cols-3 max-w-sm md:max-w-xl lg:max-w-3xl mx-auto my-5 dark:bg-gray-800 rounded-lg shadow space-x-5">
+            <a href="https://www.github.com" class="py-4 flex sm:grid-cols-3 max-w-sm md:max-w-xl lg:max-w-3xl mx-auto my-5 bg-gray-300  dark:bg-gray-800 rounded-lg shadow space-x-5">
                 <div class="space-y-3 sm:col-span-2 my-0 mx-11">
-                    <p class=" text-xl font-bold  add title and description, as well as a div containertracking-tighter sm:text-2xl dark:text-white">{project.Title}</p>
-                    <p class="text-gray-500 dark:text-gray-400">{project.Description}</p>
+                    <p class=" text-xl font-bold sm:text-2xl dark:text-white">{project.Title}</p>
+                    <p class="text-gray-600 dark:text-gray-400">{project.Description}</p>
                     @languageTags(project.Languages)
                 </div>
             </a>
@@ -104,21 +103,20 @@ templ Projects() {
     </div>
 }
 
-//TODO: change color for light mode
 templ languageTags(languages []string){
     <div class="flex flex-wrap gap-5">
         for _, language := range languages {
-            <span class="px-3 py-1 text-xs dark:text-gray-950 bg-gray-200 rounded-full">#{language}</span>
+            <span class="px-3 py-1 text-xs dark:text-gray-950 bg-gray-300 rounded-full">#{language}</span>
         }
     </div>
 }
 
 templ LanguageBio(info models.InfoBio) {
-    <div class="flex w-full space-x-20 justify-center dark:bg-gray-800 sm:col-span-2 my-0">
+    <div class="flex w-full space-x-20 justify-center bg-gray-300 dark:bg-gray-800 sm:col-span-2 my-0">
         <div class="flex flex-col gap-12 w-5/6 pt-5 pb-20 justify-center mx-auto">
             <div class="flex flex-col gap-3 mx-auto max-w-fit">
-                <h2 class="text-3xl leading-10 font-bold text-gray-700 dark:text-white text-left">About<span class="text-primary">.</span></h2>
-                <p class="text-gray-500 dark:text-gray-400 text-xl max-w-4xl pb-10">{info.Introduction}</p>
+                <h2 class="text-3xl leading-10 font-bold text-gray-800 dark:text-white text-left">About<span class="text-primary">.</span></h2>
+                <p class="text-gray-600 dark:text-gray-400 text-xl max-w-4xl pb-10">{info.Introduction}</p>
                 @SkillsCategoryTemplate(info.Skills)
             </div>
         </div>
@@ -132,8 +130,8 @@ templ SkillsCategoryTemplate(stack []models.SkillCategory) {
                 <div class="flex flex-wrap gap-6">
                     for _, skill := range category.Skills {
                         <div class="flex flex-col items-center justify-center gap-1">
-                            <img src={skill.IconURL} alt={skill.Name} class="h-12 select-none"></img>
-                            <p class="text-center text-gray-500 dark:text-gray-400">{skill.Name}</p>
+                            <img src={skill.IconURL} alt={skill.Name} class="h-12 text-gray-600 select-none"></img>
+                            <p class="text-center text-gray-600 dark:text-gray-400">{skill.Name}</p>
                         </div>
                     }
                 </div>

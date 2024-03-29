@@ -17,13 +17,13 @@ func main() {
 
     // Manejador para la ruta "/projects"
     http.HandleFunc("/projects", func(w http.ResponseWriter, r *http.Request) {
-        c := view.Navbar(0, view.Projects())
+        c := view.Navbar(1, view.Projects())
         templ.Handler(c).ServeHTTP(w, r)
     })
 
     // Manejador para la ruta "/experience"
 	http.HandleFunc("/experience", func(w http.ResponseWriter, r *http.Request) {
-		c := view.Navbar(1, view.Experience())
+		c := view.Navbar(0, view.Experience())
 		templ.Handler(c).ServeHTTP(w, r)
 	})
 

@@ -41,7 +41,7 @@ func Experience() templ.Component {
 			return templ_7745c5c3_Err
 		}
 		for _, experience := range experiences {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"flex flex-col items-start\"><div class=\"relative max-w-xs md:max-w-xl lg:max-w-3xl bg-gray-400 p-4 text-left ml-5 mb-3 dark:bg-gray-800 rounded-lg shadow min-w-full\"><p class=\" text-xl font-bold sm:text-2xl dark:text-white\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"flex flex-col items-start\"><div class=\"relative max-w-xs md:max-w-xl lg:max-w-3xl bg-gray-300 p-4 text-left ml-5 mb-3 dark:bg-gray-800 rounded-lg shadow min-w-full\"><p class=\" text-xl font-bold sm:text-2xl dark:text-white\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -54,7 +54,7 @@ func Experience() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p><p class=\"text-gray-500 dark:text-gray-200 mb-2\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p><p class=\"text-gray-700 dark:text-gray-200 mb-2\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -67,7 +67,7 @@ func Experience() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p><p class=\"text-gray-500 dark:text-gray-400\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p><p class=\"text-gray-700 dark:text-gray-400\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
