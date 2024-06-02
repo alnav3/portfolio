@@ -23,15 +23,25 @@ func Homelab() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"navbar-content\" class=\"max-w-sm md:max-w-xl lg:max-w-3xl mx-auto  mt-8\"><p class=\"text-3xl font-bold text-center sm:text-4xl dark:text-white\">Homelab Servers</p><a href=\"https://www.github.com\" class=\"py-4 flex bg-gray-300 sm:grid-cols-3 max-w-sm md:max-w-xl lg:max-w-3xl mx-auto my-5 dark:bg-gray-800 rounded-lg shadow space-x-5\"><div class=\"space-y-3 sm:col-span-2 my-0 mx-11 \"><p class=\" text-xl font-bold  add title and description, as well as a div containertracking-tighter sm:text-2xl dark:text-white\">Title</p><p class=\"text-gray-600 dark:text-gray-400\">Description</p>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"navbar-content\" class=\"max-w-sm md:max-w-xl lg:max-w-3xl mx-auto  mt-8\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		templ_7745c5c3_Err = languageTags([]string{"Golang"}).Render(ctx, templ_7745c5c3_Buffer)
-		if templ_7745c5c3_Err != nil {
-			return templ_7745c5c3_Err
+		for i := 0; i < 3; i++ {
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"https://www.github.com\" class=\"py-4 flex bg-mantle sm:grid-cols-3 max-w-sm md:max-w-xl\n            lg:max-w-3xl mx-auto my-5 rounded-lg shadow space-x-5\"><div class=\"space-y-3 sm:col-span-2 my-0 mx-11 \"><p class=\" text-xl font-bold tracking-tighter sm:text-2xl text-text\">Title</p><p class=\"text-subtext0\">Description</p>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			templ_7745c5c3_Err = languageTags([]string{"Golang"}).Render(ctx, templ_7745c5c3_Buffer)
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></a>")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></a></div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

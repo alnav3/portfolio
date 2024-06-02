@@ -80,21 +80,20 @@ templ ProfileInfo(profile models.Profile) {
             <img class="max-w-32 max-h-32 dark:text-white rounded-full mx-auto sm:mx-0 sm:shrink-0" src="/img/profile.jpg" alt="Profile photo" />
         </div>
         <div class="py-10 space-y-3 max-w-xs lg:max-w-md sm:col-span-2 my-0 md:mx-11 mx-4">
-            <p class="text-3xl font-bold tracking-tighter sm:text-4xl dark:text-white">{profile.Name}</p>
-            <p class="text-gray-600 dark:text-gray-400">{profile.JobTitle}</p>
-            <p class="text-gray-600 dark:text-gray-400 mr-5">{profile.Bio}</p>
+            <p class="text-3xl font-bold tracking-tighter sm:text-4xl text-mauve">{profile.Name}</p>
+            <p class="text-subtext0">{profile.JobTitle}</p>
+            <p class="text-subtext0">{profile.Bio}</p>
         </div>
     </div>
 }
 
 templ Projects() {
     <div id="navbar-content" class="max-w-sm md:max-w-xl lg:max-w-3xl mx-auto mt-8">
-        <p class="text-3xl font-bold text-center sm:text-4xl dark:text-white">{projectBio.Title}</p>
         for _, project := range projects {
-            <a href="https://www.github.com" class="py-4 flex sm:grid-cols-3 max-w-sm md:max-w-xl lg:max-w-3xl mx-auto my-5 bg-gray-300  dark:bg-gray-800 rounded-lg shadow space-x-5">
+            <a href="https://www.github.com" class="py-4 flex sm:grid-cols-3 max-w-sm md:max-w-xl lg:max-w-3xl mx-auto my-5 bg-mantle rounded-lg shadow space-x-5">
                 <div class="space-y-3 sm:col-span-2 my-0 mx-11">
-                    <p class=" text-xl font-bold sm:text-2xl dark:text-white">{project.Title}</p>
-                    <p class="text-gray-600 dark:text-gray-400">{project.Description}</p>
+                    <p class=" text-xl font-bold sm:text-2xl text-text">{project.Title}</p>
+                    <p class="text-subtext0">{project.Description}</p>
                     @languageTags(project.Languages)
                 </div>
             </a>
@@ -105,17 +104,17 @@ templ Projects() {
 templ languageTags(languages []string){
     <div class="flex flex-wrap gap-5">
         for _, language := range languages {
-            <span class="px-3 py-1 text-xs dark:text-gray-950 bg-gray-100 rounded-full">#{language}</span>
+            <span class="px-3 py-1 text-xs text-surface0 bg-mauve rounded-full">#{language}</span>
         }
     </div>
 }
 
 templ LanguageBio(info models.InfoBio) {
-    <div class="flex w-full space-x-20 justify-center bg-gray-300 dark:bg-gray-800 sm:col-span-2 my-0">
+    <div class="flex w-full space-x-20 justify-center bg-mantle sm:col-span-2 my-0">
         <div class="flex flex-col gap-12 w-5/6 pt-5 pb-20 justify-center mx-auto">
             <div class="flex flex-col gap-3 mx-auto max-w-fit">
-                <h2 class="text-3xl leading-10 font-bold text-gray-800 dark:text-white text-left">About<span class="text-primary">.</span></h2>
-                <p class="text-gray-600 dark:text-gray-400 text-xl max-w-4xl pb-10">{info.Introduction}</p>
+                <h2 class="text-3xl leading-10 font-bold text-lavender text-left">About<span class="text-primary">.</span></h2>
+                <p class="text-subtext0 text-xl max-w-4xl pb-10">{info.Introduction}</p>
                 @SkillsCategoryTemplate(info.Skills)
             </div>
         </div>
@@ -125,7 +124,7 @@ templ SkillsCategoryTemplate(stack []models.SkillCategory) {
     <div class="flex flex-col gap-12 lg:flex-row lg:gap-20">
         for _, category := range stack {
             <div class="flex flex-col gap-5">
-                <h3 class="text-2xl font-medium dark:text-white">{category.Title}</h3>
+                <h3 class="text-2xl font-medium text-text">{category.Title}</h3>
                 <div class="flex flex-wrap gap-6">
                     for _, skill := range category.Skills {
                         <div class="flex flex-col items-center justify-center gap-1">

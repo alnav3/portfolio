@@ -36,7 +36,7 @@ func Experience() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"navbar-content\" class=\"flex flex-col items-center mt-8 mb-8 \"><!-- Línea Vertical --><div class=\"relative border-l-2 border-gray-500 max-w-xs md:max-w-xl lg:max-w-3xl\"><h3 class=\"text-sm font-semibold mx-3 mb-3 text-left dark:text-white\">Present</h3><!-- Elemento de la Línea de Tiempo -->")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"navbar-content\" class=\"flex flex-col items-center mt-8 mb-8\"><!-- Línea Vertical --><div class=\"relative border-l-2 border-gray-500 max-w-xs md:max-w-xl lg:max-w-3xl\"><h3 class=\"text-sm font-semibold mx-3 mb-3 text-left dark:text-white\">Present</h3><!-- Elemento de la Línea de Tiempo -->")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
