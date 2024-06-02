@@ -33,7 +33,7 @@ func main() {
 		templ.Handler(c).ServeHTTP(w, r)
 	})
 
-    handleDirectory("/style/", "/img/")
+    handleDirectory("/style/", "/img/", "/js/")
 
     println("Servidor iniciado en el puerto 80")
 
