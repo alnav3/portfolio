@@ -23,25 +23,17 @@ func Homelab() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"navbar-content\" class=\"max-w-sm md:max-w-xl lg:max-w-3xl mx-auto  mt-8\">")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<section class=\"w-full\"><div id=\"navbar-content\" class=\"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto mt-8\">")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		for i := 0; i < 3; i++ {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"https://www.github.com\" class=\"py-4 flex bg-mantle sm:grid-cols-3 max-w-sm md:max-w-xl\n            lg:max-w-3xl mx-auto my-5 rounded-lg shadow space-x-5\"><div class=\"space-y-3 sm:col-span-2 my-0 mx-11 \"><p class=\" text-xl font-bold tracking-tighter sm:text-2xl text-text\">Title</p><p class=\"text-subtext0\">Description</p>")
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			templ_7745c5c3_Err = languageTags([]string{"Golang"}).Render(ctx, templ_7745c5c3_Buffer)
-			if templ_7745c5c3_Err != nil {
-				return templ_7745c5c3_Err
-			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></a>")
+		for i := 0; i < 5; i++ {
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"https://www.github.com\" class=\"grid grid-cols-2 gap-6 bg-mantle rounded-lg mx-5 my-5\n                hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2\"><img src=\"/img/homelab/HomeAssistant.svg\" alt=\"Project 6\" width=\"300\" height=\"200\" class=\"object-cover w-full h-full rounded-l-lg\" style=\"aspect-ratio:300/200;object-fit:cover\"><div class=\"my-5 mr-5\"><p class=\" text-center text-xl font-bold tracking-tighter sm:text-2xl text-text\">Title</p><p class=\"text-center text-sm text-subtext0\">A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools.</p></div></a>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 		}
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</div></section>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
