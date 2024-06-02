@@ -14,19 +14,18 @@ var experiences = []experience{
 }
 
 templ Experience() {
-    <div id="navbar-content" class="flex flex-col items-center mt-8 mb-8">
+    <div id="navbar-content" class="flex flex-col items-center mt-8 mb-8 ">
         <!-- Línea Vertical -->
-        <p class="text-3xl font-bold text-center sm:text-4xl dark:text-white">Experience</p>
-        <div class="relative border-l-2 border-gray-500">
-        <h3 class="text-sm font-semibold mx-3 mb-3 text-left dark:text-white">Present</h3>
+        <div class="relative border-l-2 border-gray-500 max-w-xs md:max-w-xl lg:max-w-3xl">
+            <h3 class="text-sm font-semibold mx-3 mb-3 text-left dark:text-white">Present</h3>
             <!-- Elemento de la Línea de Tiempo -->
             for _, experience := range experiences {
 
-                <div class="flex flex-col items-start">
-                    <div class="relative max-w-xs md:max-w-xl lg:max-w-3xl bg-gray-300 p-4 text-left ml-5 mb-3 dark:bg-gray-800 rounded-lg shadow min-w-full">
-                        <p class=" text-xl font-bold sm:text-2xl dark:text-white">{experience.name}</p>
-                        <p class="text-gray-700 dark:text-gray-200 mb-2">{experience.position}</p>
-                        <p class="text-gray-700 dark:text-gray-400">{experience.description}</p>
+                <div class="flex flex-col items-start max-w-fit">
+                    <div class="relative bg-mantle p-4 text-left ml-5 mb-3 rounded-lg shadow min-w-fit">
+                        <p class=" text-xl font-bold sm:text-2xl text-text">{experience.name}</p>
+                        <p class="text-subtext1 mb-2">{experience.position}</p>
+                        <p class="text-subtext0">{experience.description}</p>
                     </div>
                     <h3 class="text-sm font-semibold mx-3 mb-3 text-left dark:text-white">{experience.date}</h3>
                 </div>
