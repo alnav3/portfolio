@@ -27,7 +27,7 @@ func SetDefaultTheme() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<script>\n        // On page load or when changing themes, best to add inline in `head` to avoid FOUC\n        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {\n            localStorage.theme = 'dark';\n            document.documentElement.classList.add('dark');\n        } else {\n            localStorage.theme = 'light';\n            document.documentElement.classList.remove('dark');\n        }\n    </script>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<script>\n        // On page load changing themes\n        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {\n            localStorage.theme = 'dark';\n            document.documentElement.classList.add('dark');\n        } else {\n            localStorage.theme = 'light';\n            document.documentElement.classList.remove('dark');\n        }\n    </script>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

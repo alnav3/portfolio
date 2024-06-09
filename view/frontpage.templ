@@ -73,32 +73,20 @@ templ Base(children ...templ.Component) {
 }
 
 templ HomePage() {
-    @ThemeButtonLight()
+    @ThemeButton()
     @ProfileInfo(profile)
     @LanguageBio(infoBio)
     @Navbar(0, Experience())
 }
 
-templ ThemeButtonDark () {
-    <button class="flex
-        items-center justify-center w-full h-full rounded-lg p-2 bg-mauve border-transparent
-        text-surface0 font-bold"
-        onclick="toggleTheme()"
-        hx-get="/toggle-theme/dark" hx-target="this" hx-swap="outerHTML"
-        hx-params="theme=dark">
-        Dark
-    </button>
-}
-
-templ ThemeButtonLight () {
-    <button class="flex
-        items-center justify-center w-full h-full rounded-lg p-2 bg-mauve border-transparent
-        text-surface0 font-bold"
-        onclick="toggleTheme()"
-        hx-get="/toggle-theme/light" hx-target="this" hx-swap="outerHTML"
-        hx-vals="theme=light">
-        Light
-    </button>
+templ ThemeButton () {
+    <div class="fixed top-0 right-0 p-4">
+        <button class="flex items-center justify-center border-transparent"
+            onclick="toggleTheme()">
+            <img src="/img/icons/theme/light.svg" alt="Icon" class="w-6 h-6 mr-2 hidden dark:inline"/>
+            <img src="/img/icons/theme/dark.svg" alt="Icon" class="w-6 h-6 mr-2 dark:hidden"/>
+        </button>
+    </div>
 }
 
 templ ProfileInfo(profile models.Profile) {

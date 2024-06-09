@@ -14,15 +14,6 @@ func main() {
 		templ.Handler(c).ServeHTTP(w, r)
 	})
 
-    http.HandleFunc("/toggle-theme/{theme}", func(w http.ResponseWriter, r *http.Request) {
-        theme := r.PathValue("theme")
-        if (theme == "light") {
-            templ.Handler(view.ThemeButtonDark()).ServeHTTP(w, r)
-        } else {
-            templ.Handler(view.ThemeButtonLight()).ServeHTTP(w, r)
-        }
-    })
-
     // Manejador para la ruta "/projects"
     http.HandleFunc("/projects", func(w http.ResponseWriter, r *http.Request) {
         c := view.Navbar(1, view.Projects())
