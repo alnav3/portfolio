@@ -1,6 +1,9 @@
 package view
 
-import "models"
+import (
+    "models"
+    "scripts"
+)
 
 
 var projects = []models.Project{
@@ -57,6 +60,7 @@ templ Base(children ...templ.Component) {
             <meta charset="UTF-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             <link href="/style/tailwind.css" rel="stylesheet"/>
+            @scripts.SetDefaultTheme()
         </head>
         <body class="dark:mocha bg-base">
             for _, child := range children {
@@ -69,9 +73,32 @@ templ Base(children ...templ.Component) {
 }
 
 templ HomePage() {
+    @ThemeButtonLight()
     @ProfileInfo(profile)
     @LanguageBio(infoBio)
     @Navbar(0, Experience())
+}
+
+templ ThemeButtonDark () {
+    <button class="flex
+        items-center justify-center w-full h-full rounded-lg p-2 bg-mauve border-transparent
+        text-surface0 font-bold"
+        onclick="toggleTheme()"
+        hx-get="/toggle-theme/dark" hx-target="this" hx-swap="outerHTML"
+        hx-params="theme=dark">
+        Dark
+    </button>
+}
+
+templ ThemeButtonLight () {
+    <button class="flex
+        items-center justify-center w-full h-full rounded-lg p-2 bg-mauve border-transparent
+        text-surface0 font-bold"
+        onclick="toggleTheme()"
+        hx-get="/toggle-theme/light" hx-target="this" hx-swap="outerHTML"
+        hx-vals="theme=light">
+        Light
+    </button>
 }
 
 templ ProfileInfo(profile models.Profile) {
@@ -79,7 +106,7 @@ templ ProfileInfo(profile models.Profile) {
         <div class="hidden md:flex justify-end py-14">
             <img class="max-w-32 max-h-32 dark:text-white rounded-full mx-auto sm:mx-0 sm:shrink-0" src="/img/profile.jpg" alt="Profile photo" />
         </div>
-        <div class="py-10 space-y-3 max-w-xs lg:max-w-md sm:col-span-2 my-0 md:mx-11 mx-4">
+        <div class="py-14 space-y-3 max-w-xs lg:max-w-md sm:col-span-2 my-0 md:mx-11 mx-4">
             <p class="text-3xl font-bold tracking-tighter sm:text-4xl text-mauve">{profile.Name}</p>
             <p class="text-subtext0">{profile.JobTitle}</p>
             <p class="text-subtext0">{profile.Bio}</p>
