@@ -60,7 +60,7 @@ templ Base(children ...templ.Component) {
             <meta charset="UTF-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             <link href="/style/tailwind.css" rel="stylesheet"/>
-            @scripts.SetDefaultTheme()
+            @scripts.Init()
         </head>
         <body class="dark:mocha bg-base">
             for _, child := range children {

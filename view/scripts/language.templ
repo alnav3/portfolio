@@ -1,0 +1,20 @@
+package scripts
+
+templ initLanguage() {
+    <script>
+        function setLanguagePreference() {
+            if (!localStorage.getItem('preferredLanguage')) {
+                let language = (navigator.language || navigator.userLanguage).substring(0,2);
+                localStorage.setItem('preferredLanguage', language);
+            }
+        }
+
+        function getLanguage(){
+            return localStorage.getItem('preferredLanguage');
+        }
+
+        //TODO: delete this afterwards or else
+        setLanguagePreference();
+    </script>
+}
+
