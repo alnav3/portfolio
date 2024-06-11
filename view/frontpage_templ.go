@@ -268,7 +268,7 @@ func Projects(projects []structure.Project) templ.Component {
 			return templ_7745c5c3_Err
 		}
 		for _, project := range projects {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"https://www.github.com\" class=\"py-4 flex sm:grid-cols-3 max-w-sm md:max-w-xl lg:max-w-3xl mx-auto my-5 bg-mantle rounded-lg shadow space-x-5\"><div class=\"space-y-3 sm:col-span-2 my-0 mx-11\"><p class=\" text-xl font-bold sm:text-2xl text-text\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"https://www.github.com\" class=\"py-4 flex sm:grid-cols-3 max-w-sm md:max-w-xl lg:max-w-3xl mx-auto my-5 bg-mantle rounded-lg shadow space-x-5 ml-2 mr-2\"><div class=\"space-y-3 sm:col-span-2 my-0 mx-11\"><p class=\" text-xl font-bold sm:text-2xl text-text\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
