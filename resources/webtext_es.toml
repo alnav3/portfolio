@@ -1,15 +1,15 @@
 [Profile]
 Name = "Alex Navia"
-JobTitle = "Software Developer"
-Bio = "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."
+JobTitle = "Desarrollador de Software"
+Bio = "Apasionado de crear increíbles experiencias web. Disfruto de convertir ideas en realidad. Tengo experiencia trabajando con JavaScript, React y Next.js."
 ImgURL = "/img/profile.jpg"
 
 [InfoBio]
-Title = "About"
-Introduction = "Hi there! I'm Alex Navia Santos, a backend developer with a flair for Golang, Java, and crafting sleek web interfaces using HTML with Tailwind CSS. My focus is on building efficient, scalable backends in Spring Boot. Committed to lifelong learning, I thrive on enhancing my skills to stay at the forefront of backend technologies."
+Title = "Sobre mí"
+Introduction = "¡Hola! Soy Alex Navia Santos, un desarrollador de backend con un talento especial para Golang, Java y la creación de interfaces web elegantes usando HTML con Tailwind CSS. Mi enfoque está en construir backends eficientes y escalables en Spring Boot. Comprometido con el aprendizaje continuo, me esfuerzo por mejorar mis habilidades para estar a la vanguardia de las tecnologías de backend."
 
 [[InfoBio.SkillCategories]]
-Title = "Languages"
+Title = "Lenguajes"
 IconURL= "/img/icons/golang.svg"
 [[InfoBio.SkillCategories.Skills]]
 Name= "Go"
@@ -34,7 +34,7 @@ Name= "Tailwind"
 IconURL= "/img/icons/tailwind.svg"
 
 [[InfoBio.SkillCategories]]
-Title = "Tech Stack"
+Title = "Stack Tecnológico"
 [[InfoBio.SkillCategories.Skills]]
 Name= "Git"
 IconURL= "/img/icons/git.svg"
@@ -46,10 +46,10 @@ Name= "Neovim"
 IconURL= "/img/icons/neovim.svg"
 
 [[NavItems]]
-Name = "Experience"
+Name = "Experiencia"
 Id = "experience"
 [[NavItems]]
-Name = "Projects"
+Name = "Proyectos"
 Id = "projects"
 [[NavItems]]
 Name = "Homelab"
@@ -57,51 +57,51 @@ Id = "homelab"
 
 [[Experiences]]
 Name = "Alvea"
-Date = "July, 2023"
-Position = "Senior backend developer"
-Description = "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."
-PresentDesc = "Present"
+Date = "Julio, 2023"
+Position = "Desarrollador de backend senior"
+Description = "Apasionado de crear increíbles experiencias web. Disfruto de convertir ideas en realidad. Tengo experiencia trabajando con JavaScript, React y Next.js."
+PresentDesc = "Actualidad"
 [[Experiences]]
 Name = "Cleverpy"
-Date = "February, 2023"
-Position = "Senior backend developer"
-Description = "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."
+Date = "Febrero, 2023"
+Position = "Desarrollador de backend senior"
+Description = "Apasionado de crear increíbles experiencias web. Disfruto de convertir ideas en realidad. Tengo experiencia trabajando con JavaScript, React y Next.js."
 [[Experiences]]
 Name = "Capgemini"
-Date = "January, 2021"
-Position = "Junior Backend Developer"
-Description = "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."
+Date = "Enero, 2021"
+Position = "Desarrollador de Backend Junior"
+Description = "Apasionado de crear increíbles experiencias web. Disfruto de convertir ideas en realidad. Tengo experiencia trabajando con JavaScript, React y Next.js."
 
 [[Projects]]
-Title = "Portfolio Website"
-Description = "This is the portfolio website of Alex Navia. I'm currently working on it."
+Title = "Portfolio"
+Description = "Este es el sitio web de portafolio de Alex Navia. Actualmente estoy trabajando en él."
 Languages = ["HTML", "Tailwind", "Go"]
 [[Projects]]
 Title = "HTML"
-Description = "This is a description"
+Description = "Esta es una descripción"
 Languages = ["HTML", "Tailwind", "Go"]
 [[Projects]]
 Title = "Tailwind"
-Description = "This is a description"
+Description = "Esta es una descripción"
 Languages = ["HTML", "Tailwind", "Go"]
 
 [[HomelabItems]]
-Title = "Title"
-Description = "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools."
+Title = "Título"
+Description = "Una plataforma de almacenamiento y colaboración en la nube autoalojada usando NextCloud y otras herramientas de código abierto."
 ImgURL = "/img/homelab/HomeAssistant.svg"
 [[HomelabItems]]
-Title = "Title"
-Description = "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools."
+Title = "Título"
+Description = "Una plataforma de almacenamiento y colaboración en la nube autoalojada usando NextCloud y otras herramientas de código abierto."
 ImgURL = "/img/homelab/HomeAssistant.svg"
 [[HomelabItems]]
-Title = "Title"
-Description = "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools."
+Title = "Título"
+Description = "Una plataforma de almacenamiento y colaboración en la nube autoalojada usando NextCloud y otras herramientas de código abierto."
 ImgURL = "/img/homelab/HomeAssistant.svg"
 [[HomelabItems]]
-Title = "Title"
-Description = "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools."
+Title = "Título"
+Description = "Una plataforma de almacenamiento y colaboración en la nube autoalojada usando NextCloud y otras herramientas de código abierto."
 ImgURL = "/img/homelab/HomeAssistant.svg"
 [[HomelabItems]]
-Title = "Title"
-Description = "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools."
+Title = "Título"
+Description = "Una plataforma de almacenamiento y colaboración en la nube autoalojada usando NextCloud y otras herramientas de código abierto."
 ImgURL = "/img/homelab/HomeAssistant.svg"

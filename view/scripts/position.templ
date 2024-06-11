@@ -1,0 +1,13 @@
+package scripts
+
+templ getPosition() {
+    <script>
+    function getPosition() {
+        var position = JSON.parse(document.getElementById('position').textContent);
+        if (position) {
+            return position
+        }
+        return 0;
+    }
+    </script>
+}

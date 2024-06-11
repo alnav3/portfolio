@@ -10,7 +10,7 @@ import "context"
 import "io"
 import "bytes"
 
-func initLanguage() templ.Component {
+func getPosition() templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -23,7 +23,7 @@ func initLanguage() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<script>\n        function setLanguagePreference(){\n            if (!localStorage.getItem('preferredLanguage')) {\n                let language = (navigator.language || navigator.userLanguage).substring(0,2);\n                localStorage.setItem('preferredLanguage', language);\n            }\n            return localStorage.getItem('preferredLanguage');\n        }\n\n        function setLanguage(language) {\n            console.log(\"Setting language to: \" + language);\n            localStorage.setItem('preferredLanguage', language);\n            return language\n        }\n\n    </script>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<script>\n    function getPosition() {\n        var position = JSON.parse(document.getElementById('position').textContent);\n        if (position) {\n            return position\n        }\n        return 0;\n    }\n    </script>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

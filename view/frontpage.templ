@@ -5,7 +5,7 @@ import (
     "scripts"
 )
 
-templ Base(children ...templ.Component) {
+templ Base() {
     <!doctype html>
     <html>
         <head>
@@ -14,37 +14,50 @@ templ Base(children ...templ.Component) {
             <link href="/style/tailwind.css" rel="stylesheet"/>
             @scripts.Init()
         </head>
-        <body class="dark:mocha bg-base">
-            for _, child := range children {
-                @child
-            }
-            <!-- htmx -->
-            <script src="/js/htmx.min.js"></script>
+        <body id="frontpage" class="dark:mocha bg-base" hx-trigger="load" hx-vals='js:{"language": setLanguagePreference(), "position": 0}' hx-post="/language">
+        <!-- htmx -->
+        <script src="/js/htmx.min.js"></script>
         </body>
     </html>
 }
 
-templ HomePage(webtext structure.WebText) {
-    @ThemeButton()
+templ HomePage(webtext structure.WebText, language string, position int, child templ.Component) {
+    @ThemeButton(language)
     @ProfileInfo(webtext.Profile)
     @LanguageBio(webtext.InfoBio)
-    @Navbar(0, webtext.NavItems, DrawExperience(webtext.Experiences))
+    @Navbar(position, webtext.NavItems, child)
+    <!-- htmx -->
+    <script src="/js/htmx.min.js"></script>
 }
 templ ButtonEN() {
-    <button class="flex items-center justify-center border-transparent"
-        hx-vals='js:{"language": setLanguage("EN")}' hx-post="/language"
-        hx-swap="outerHTML">EN</button>
+    <button class="flex mr-5 items-center justify-center w-16 h-6 text-white rounded-lg overflow-hidden"
+        hx-vals='js:{"language": setLanguage("es"), "position": getPosition()}' hx-post="/language"
+        hx-swap="outerHTML" hx-target="#frontpage">
+        <span class="flex items-center justify-center font-bold bg-mauve text-base dark:text-surface0 h-full w-full">EN</span>
+        <span class="flex items-center justify-center font-bold bg-mantle text-text h-full w-full">ES</span>
+    </button>
+
+    <button class="items-center justify-center border-transparent hidden"
+        hx-vals='js:{"language": setLanguage("en"), "position": getPosition()}' hx-post="/language"
+        hx-swap="outerHTML" hx-target="#frontpage">EN</button>
 }
 
 templ ButtonES() {
-    <button class="flex items-center justify-center border-transparent"
-        hx-vals='js:{"language": setLanguage("ES")}' hx-post="/language"
-        hx-swap="outerHTML">ES</button>
+    <button class="flex mr-5 items-center justify-center w-16 h-6 text-white rounded-lg overflow-hidden"
+        hx-vals='js:{"language": setLanguage("en"), "position": getPosition()}' hx-post="/language"
+        hx-swap="outerHTML" hx-target="#frontpage">
+        <span class="flex items-center justify-center font-bold bg-mantle text-text h-full w-full">EN</span>
+        <span class="flex items-center justify-center font-bold bg-mauve text-base dark:text-surface0 h-full w-full">ES</span>
+    </button>
 }
 
-templ ThemeButton () {
+templ ThemeButton (language string) {
     <div class="flex fixed top-0 right-0 p-4">
-        @ButtonES()
+        if language == "en" {
+            @ButtonEN()
+        } else {
+            @ButtonES()
+        }
         <button class="flex items-center justify-center border-transparent"
             onclick="toggleTheme()">
             <img src="/img/icons/theme/light.svg" alt="Icon" class="w-6 h-6 mr-2 hidden dark:inline"/>

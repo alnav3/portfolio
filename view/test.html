@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Selector</title>
+    <!-- Import TailwindCSS with Catppuccin theme -->
+    <link href="../style/tailwind.css" rel="stylesheet">
+    <style>
+        .dropdown-arrow {
+            pointer-events: none;
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body class="dark bg-base 100 flex items-center justify-center h-screen">
+    <button class="border flex items-center justify-center w-16 h-8 text-white rounded-xl overflow-hidden">
+        <span class="flex items-center justify-center bg-mauve text-surface0 h-full w-full">EN</span>
+        <span class="flex items-center justify-center text-surface0">|</span>
+        <span class="flex items-center justify-center text-text h-full w-full">ES</span>
+    </button>
+
+</body>
+</html>
+

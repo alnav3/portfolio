@@ -7,6 +7,7 @@ templ initLanguage() {
                 let language = (navigator.language || navigator.userLanguage).substring(0,2);
                 localStorage.setItem('preferredLanguage', language);
             }
+            return localStorage.getItem('preferredLanguage');
         }
 
         function setLanguage(language) {
@@ -15,17 +16,6 @@ templ initLanguage() {
             return language
         }
 
-        function getLanguage(){
-            if (!localStorage.getItem('preferredLanguage')) {
-                let language = localStorage.getItem('preferredLanguage');
-                return localStorage.getItem('preferredLanguage');
-            } else {
-                return "en"
-            }
-        }
-
-        //TODO: delete this afterwards or else
-        setLanguagePreference();
     </script>
 }
 
