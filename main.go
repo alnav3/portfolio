@@ -3,15 +3,21 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"path"
+	"structure"
 	"view"
 
+	"github.com/BurntSushi/toml"
 	"github.com/a-h/templ"
 )
 
 func main() {
+    var webtext structure.WebText
+    configpath := path.Join("resources", "webtext_es.toml")
+    toml.DecodeFile(configpath, &webtext)
 	// Manejador para la ruta "/"
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		c := view.Base(view.HomePage())
+		c := view.Base(view.HomePage(webtext))
 		templ.Handler(c).ServeHTTP(w, r)
 	})
 
@@ -29,19 +35,19 @@ func main() {
     })
 
     http.HandleFunc("/projects", func(w http.ResponseWriter, r *http.Request) {
-        c := view.Navbar(1, view.Projects())
+        c := view.Navbar(1, webtext.NavItems,view.Projects(webtext.Projects))
         templ.Handler(c).ServeHTTP(w, r)
     })
 
     // Manejador para la ruta "/experience"
 	http.HandleFunc("/experience", func(w http.ResponseWriter, r *http.Request) {
-		c := view.Navbar(0, view.DrawExperience())
+		c := view.Navbar(0,  webtext.NavItems, view.DrawExperience(webtext.Experiences))
 		templ.Handler(c).ServeHTTP(w, r)
 	})
 
     // Manejador para la ruta "/experience"
 	http.HandleFunc("/homelab", func(w http.ResponseWriter, r *http.Request) {
-		c := view.Navbar(2, view.Homelab())
+		c := view.Navbar(2, webtext.NavItems, view.Homelab(webtext.HomelabItems))
 		templ.Handler(c).ServeHTTP(w, r)
 	})
 

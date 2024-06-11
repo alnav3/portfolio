@@ -2,13 +2,7 @@ package view
 
 import "structure"
 
-var experiences = []structure.Experience{
-    {Name:"Alvea", Date:"July, 2023", Position:"Senior backend developer", Description:"Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js.", PresentDesc:"Present"},
-    {Name:"Cleverpy", Date:"February, 2023", Position:"Senior backend developer", Description:"Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."},
-    {Name:"Capgemini", Date:"January, 2021", Position:"Junior backend developer", Description:"Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."},
-}
-
-templ DrawExperience() {
+templ DrawExperience(experiences []structure.Experience) {
     <div id="navbar-content" class="flex flex-col items-center mt-8 mb-8">
         <!-- Línea Vertical -->
         <div class="relative border-l-2 border-gray-500 max-w-xs md:max-w-xl lg:max-w-3xl">

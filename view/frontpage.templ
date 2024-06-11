@@ -5,51 +5,6 @@ import (
     "scripts"
 )
 
-
-var projects = []structure.Project{
-    {Title:"Portfolio website", Description:"This is the portfolio website of Alex Navia. I am currently working on it.", Languages:[]string{"HTML", "Tailwind", "Go"}},
-    {Title:"HTML", Description:"This is a description", Languages:[]string{"HTML", "Tailwind", "Go"}},
-    {Title:"Tailwind", Description:"This is a description", Languages:[]string{"HTML", "Tailwind", "Go"}},
-}
-
-var profile = structure.Profile {
-    Name:"Alex Navia",
-    JobTitle:"Software Developer",
-    Bio:"Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js.",
-}
-
-var infoBio = structure.InfoBio{
-    Title: "About",
-    Introduction: "Hi there! I'm Alex Navia Santos, a backend developer with a flair for Golang, Java, and crafting sleek web interfaces using HTML with Tailwind CSS. My focus is on building efficient, scalable backends in Spring Boot. Committed to lifelong learning, I thrive on enhancing my skills to stay at the forefront of backend technologies.",
-    SkillCategories: []structure.SkillCategory{
-        {
-            Title: "Languages",
-            Skills: []structure.Skill{
-                {Name: "Go", IconURL: "/img/icons/golang.svg"},
-                {Name: "Java", IconURL: "/img/icons/java.svg"},
-                {Name: "HTML", IconURL: "/img/icons/html.svg"},
-                {Name: "CSS", IconURL: "/img/icons/css.svg"},
-            },
-        },
-        {
-            Title: "Frameworks",
-            Skills: []structure.Skill{
-                {Name: "Spring", IconURL: "/img/icons/spring.svg"},
-                {Name: "Tailwind", IconURL: "/img/icons/tailwind.svg"},
-            },
-        },
-        {
-            Title: "Tech Stack",
-            Skills: []structure.Skill{
-                {Name: "Git", IconURL: "/img/icons/git.svg"},
-                {Name: "Docker", IconURL: "/img/icons/docker.svg"},
-                {Name: "Neovim", IconURL: "/img/icons/neovim.svg"},
-
-            },
-        },
-    },
-}
-
 templ Base(children ...templ.Component) {
     <!doctype html>
     <html>
@@ -69,11 +24,11 @@ templ Base(children ...templ.Component) {
     </html>
 }
 
-templ HomePage() {
+templ HomePage(webtext structure.WebText) {
     @ThemeButton()
-    @ProfileInfo(profile)
-    @LanguageBio(infoBio)
-    @Navbar(0, DrawExperience())
+    @ProfileInfo(webtext.Profile)
+    @LanguageBio(webtext.InfoBio)
+    @Navbar(0, webtext.NavItems, DrawExperience(webtext.Experiences))
 }
 templ ButtonEN() {
     <button class="flex items-center justify-center border-transparent"
@@ -101,7 +56,7 @@ templ ThemeButton () {
 templ ProfileInfo(profile structure.Profile) {
     <div class="sm:flex space-x-10 md:space-x-20 justify-center">
         <div class="hidden md:flex justify-end py-14">
-            <img class="max-w-32 max-h-32 dark:text-white rounded-full mx-auto sm:mx-0 sm:shrink-0" src="/img/profile.jpg" alt="Profile photo" />
+            <img class="max-w-32 max-h-32 dark:text-white rounded-full mx-auto sm:mx-0 sm:shrink-0" src={profile.ImgURL} alt="Profile photo" />
         </div>
         <div class="py-14 space-y-3 max-w-xs lg:max-w-md sm:col-span-2 my-0 md:mx-11 mx-4">
             <p class="text-3xl font-bold tracking-tighter sm:text-4xl text-mauve">{profile.Name}</p>
@@ -111,7 +66,7 @@ templ ProfileInfo(profile structure.Profile) {
     </div>
 }
 
-templ Projects() {
+templ Projects(projects []structure.Project) {
     <div id="navbar-content" class="max-w-sm md:max-w-xl lg:max-w-3xl mx-auto mt-8">
         for _, project := range projects {
             <a href="https://www.github.com" class="py-4 flex sm:grid-cols-3 max-w-sm md:max-w-xl lg:max-w-3xl mx-auto my-5 bg-mantle rounded-lg shadow space-x-5">

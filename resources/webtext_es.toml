@@ -1,7 +1,8 @@
 [Profile]
 Name = "Alex Navia"
-JobTitle = "Software Engineer"
+JobTitle = "Software Developer"
 Bio = "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."
+ImgURL = "/img/profile.jpg"
 
 [InfoBio]
 Title = "About"
@@ -84,7 +85,23 @@ Title = "Tailwind"
 Description = "This is a description"
 Languages = ["HTML", "Tailwind", "Go"]
 
-[[Homelab]]
+[[HomelabItems]]
 Title = "Title"
 Description = "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools."
-ImgURL = "/img/homelab.jpg"
+ImgURL = "/img/homelab/HomeAssistant.svg"
+[[HomelabItems]]
+Title = "Title"
+Description = "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools."
+ImgURL = "/img/homelab/HomeAssistant.svg"
+[[HomelabItems]]
+Title = "Title"
+Description = "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools."
+ImgURL = "/img/homelab/HomeAssistant.svg"
+[[HomelabItems]]
+Title = "Title"
+Description = "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools."
+ImgURL = "/img/homelab/HomeAssistant.svg"
+[[HomelabItems]]
+Title = "Title"
+Description = "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools."
+ImgURL = "/img/homelab/HomeAssistant.svg"

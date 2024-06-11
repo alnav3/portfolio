@@ -12,13 +12,7 @@ import "bytes"
 
 import "structure"
 
-var experiences = []structure.Experience{
-	{Name: "Alvea", Date: "July, 2023", Position: "Senior backend developer", Description: "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js.", PresentDesc: "Present"},
-	{Name: "Cleverpy", Date: "February, 2023", Position: "Senior backend developer", Description: "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."},
-	{Name: "Capgemini", Date: "January, 2021", Position: "Junior backend developer", Description: "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."},
-}
-
-func DrawExperience() templ.Component {
+func DrawExperience(experiences []structure.Experience) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -44,7 +38,7 @@ func DrawExperience() templ.Component {
 				var templ_7745c5c3_Var2 string
 				templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(experience.PresentDesc)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/experience.templ`, Line: 18, Col: 113}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/experience.templ`, Line: 12, Col: 113}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 				if templ_7745c5c3_Err != nil {
@@ -62,7 +56,7 @@ func DrawExperience() templ.Component {
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(experience.Name)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/experience.templ`, Line: 22, Col: 92}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/experience.templ`, Line: 16, Col: 92}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
@@ -75,7 +69,7 @@ func DrawExperience() templ.Component {
 			var templ_7745c5c3_Var4 string
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(experience.Position)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/experience.templ`, Line: 23, Col: 74}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/experience.templ`, Line: 17, Col: 74}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
@@ -88,7 +82,7 @@ func DrawExperience() templ.Component {
 			var templ_7745c5c3_Var5 string
 			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(experience.Description)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/experience.templ`, Line: 24, Col: 72}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/experience.templ`, Line: 18, Col: 72}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
@@ -101,7 +95,7 @@ func DrawExperience() templ.Component {
 			var templ_7745c5c3_Var6 string
 			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(experience.Date)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/experience.templ`, Line: 26, Col: 106}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/experience.templ`, Line: 20, Col: 106}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {

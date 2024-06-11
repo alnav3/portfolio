@@ -2,14 +2,7 @@ package view
 
 import "structure"
 
-var homelabItems = []structure.Homelab{
-    {Title: "Title", Description: "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools.", ImgURL: "/img/homelab/HomeAssistant.svg"},
-    {Title: "Title", Description: "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools.", ImgURL: "/img/homelab/HomeAssistant.svg"},
-    {Title: "Title", Description: "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools.", ImgURL: "/img/homelab/HomeAssistant.svg"},
-    {Title: "Title", Description: "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools.", ImgURL: "/img/homelab/HomeAssistant.svg"},
-    {Title: "Title", Description: "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools.", ImgURL: "/img/homelab/HomeAssistant.svg"},
-}
-templ Homelab(){
+templ Homelab(homelabItems []structure.Homelab) {
     <section class="w-full">
         <div id="navbar-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto mt-8">
             for _, homelabItem := range homelabItems {

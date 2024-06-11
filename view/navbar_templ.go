@@ -12,17 +12,11 @@ import "bytes"
 
 import "structure"
 
-var items = []structure.NavItems{
-	{Name: "Experience", Id: "experience"},
-	{Name: "Projects", Id: "projects"},
-	{Name: "Homelab", Id: "homelab"},
-}
-
 func printEndpoint(id string) string {
 	return "/" + id
 }
 
-func Navbar(position int, child templ.Component) templ.Component {
+func Navbar(position int, items []structure.NavItems, child templ.Component) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -52,7 +46,7 @@ func Navbar(position int, child templ.Component) templ.Component {
 				var templ_7745c5c3_Var2 string
 				templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(item.Id)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 25, Col: 43}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 16, Col: 43}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 				if templ_7745c5c3_Err != nil {
@@ -65,7 +59,7 @@ func Navbar(position int, child templ.Component) templ.Component {
 				var templ_7745c5c3_Var3 string
 				templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(printEndpoint(item.Id))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 27, Col: 62}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 18, Col: 62}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 				if templ_7745c5c3_Err != nil {
@@ -78,7 +72,7 @@ func Navbar(position int, child templ.Component) templ.Component {
 				var templ_7745c5c3_Var4 string
 				templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(item.Name)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 29, Col: 38}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 20, Col: 38}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 				if templ_7745c5c3_Err != nil {
@@ -96,7 +90,7 @@ func Navbar(position int, child templ.Component) templ.Component {
 				var templ_7745c5c3_Var5 string
 				templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(item.Id)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 33, Col: 43}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 24, Col: 43}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 				if templ_7745c5c3_Err != nil {
@@ -109,7 +103,7 @@ func Navbar(position int, child templ.Component) templ.Component {
 				var templ_7745c5c3_Var6 string
 				templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(printEndpoint(item.Id))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 36, Col: 58}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 27, Col: 58}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 				if templ_7745c5c3_Err != nil {
@@ -122,7 +116,7 @@ func Navbar(position int, child templ.Component) templ.Component {
 				var templ_7745c5c3_Var7 string
 				templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(item.Name)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 38, Col: 38}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 29, Col: 38}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 				if templ_7745c5c3_Err != nil {

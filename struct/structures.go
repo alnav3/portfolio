@@ -6,12 +6,14 @@ type WebText struct {
     NavItems []NavItems
     Experiences []Experience
     Projects []Project
+    HomelabItems []Homelab
 }
 
 type Profile struct{
     Name string
     JobTitle string
     Bio string
+    ImgURL string
 }
 
 type InfoBio struct {

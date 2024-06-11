@@ -12,15 +12,7 @@ import "bytes"
 
 import "structure"
 
-var homelabItems = []structure.Homelab{
-	{Title: "Title", Description: "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools.", ImgURL: "/img/homelab/HomeAssistant.svg"},
-	{Title: "Title", Description: "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools.", ImgURL: "/img/homelab/HomeAssistant.svg"},
-	{Title: "Title", Description: "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools.", ImgURL: "/img/homelab/HomeAssistant.svg"},
-	{Title: "Title", Description: "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools.", ImgURL: "/img/homelab/HomeAssistant.svg"},
-	{Title: "Title", Description: "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools.", ImgURL: "/img/homelab/HomeAssistant.svg"},
-}
-
-func Homelab() templ.Component {
+func Homelab(homelabItems []structure.Homelab) templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -45,7 +37,7 @@ func Homelab() templ.Component {
 			var templ_7745c5c3_Var2 string
 			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(homelabItem.ImgURL)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/homelab.templ`, Line: 18, Col: 48}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/homelab.templ`, Line: 11, Col: 48}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 			if templ_7745c5c3_Err != nil {
@@ -58,7 +50,7 @@ func Homelab() templ.Component {
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(homelabItem.Title)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/homelab.templ`, Line: 21, Col: 123}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/homelab.templ`, Line: 14, Col: 123}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
@@ -71,7 +63,7 @@ func Homelab() templ.Component {
 			var templ_7745c5c3_Var4 string
 			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(homelabItem.Description)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/homelab.templ`, Line: 22, Col: 93}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/homelab.templ`, Line: 15, Col: 93}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {

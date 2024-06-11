@@ -2,20 +2,11 @@ package view
 
 import "structure"
 
-
-
-var items = []structure.NavItems {
-    {Name:"Experience", Id:"experience"},
-    {Name:"Projects", Id:"projects"},
-    {Name:"Homelab", Id:"homelab"},
-}
-
 func printEndpoint(id string) string {
     return "/"+id
 }
 
-
-templ Navbar(position int, child templ.Component) {
+templ Navbar(position int,  items []structure.NavItems,child templ.Component) {
     <div id="navbar" class="transition ease-in-out">
         <nav class="sm:flex space-x-10 md:space-x-20 mx-auto max-w-4xl rounded-2xl bg-mantle mt-10 ">
             <ul class="flex justify-around items-center w-full">
