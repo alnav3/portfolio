@@ -1,33 +1,30 @@
 package view
 
 import (
-    "models"
+    "structure"
     "scripts"
 )
 
 
-var projects = []models.Project{
+var projects = []structure.Project{
     {Title:"Portfolio website", Description:"This is the portfolio website of Alex Navia. I am currently working on it.", Languages:[]string{"HTML", "Tailwind", "Go"}},
     {Title:"HTML", Description:"This is a description", Languages:[]string{"HTML", "Tailwind", "Go"}},
     {Title:"Tailwind", Description:"This is a description", Languages:[]string{"HTML", "Tailwind", "Go"}},
 }
 
-var profile = models.Profile {
+var profile = structure.Profile {
     Name:"Alex Navia",
     JobTitle:"Software Developer",
     Bio:"Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js.",
 }
 
-var projectBio = models.ProjectBio{
-    Title:"Projects",
-    Description:"",
-}
-var infoBio = models.InfoBio{
+var infoBio = structure.InfoBio{
+    Title: "About",
     Introduction: "Hi there! I'm Alex Navia Santos, a backend developer with a flair for Golang, Java, and crafting sleek web interfaces using HTML with Tailwind CSS. My focus is on building efficient, scalable backends in Spring Boot. Committed to lifelong learning, I thrive on enhancing my skills to stay at the forefront of backend technologies.",
-    Skills: []models.SkillCategory{
+    SkillCategories: []structure.SkillCategory{
         {
             Title: "Languages",
-            Skills: []models.Skill{
+            Skills: []structure.Skill{
                 {Name: "Go", IconURL: "/img/icons/golang.svg"},
                 {Name: "Java", IconURL: "/img/icons/java.svg"},
                 {Name: "HTML", IconURL: "/img/icons/html.svg"},
@@ -36,14 +33,14 @@ var infoBio = models.InfoBio{
         },
         {
             Title: "Frameworks",
-            Skills: []models.Skill{
+            Skills: []structure.Skill{
                 {Name: "Spring", IconURL: "/img/icons/spring.svg"},
                 {Name: "Tailwind", IconURL: "/img/icons/tailwind.svg"},
             },
         },
         {
             Title: "Tech Stack",
-            Skills: []models.Skill{
+            Skills: []structure.Skill{
                 {Name: "Git", IconURL: "/img/icons/git.svg"},
                 {Name: "Docker", IconURL: "/img/icons/docker.svg"},
                 {Name: "Neovim", IconURL: "/img/icons/neovim.svg"},
@@ -76,11 +73,23 @@ templ HomePage() {
     @ThemeButton()
     @ProfileInfo(profile)
     @LanguageBio(infoBio)
-    @Navbar(0, Experience())
+    @Navbar(0, DrawExperience())
+}
+templ ButtonEN() {
+    <button class="flex items-center justify-center border-transparent"
+        hx-vals='js:{"language": setLanguage("EN")}' hx-post="/language"
+        hx-swap="outerHTML">EN</button>
+}
+
+templ ButtonES() {
+    <button class="flex items-center justify-center border-transparent"
+        hx-vals='js:{"language": setLanguage("ES")}' hx-post="/language"
+        hx-swap="outerHTML">ES</button>
 }
 
 templ ThemeButton () {
-    <div class="fixed top-0 right-0 p-4">
+    <div class="flex fixed top-0 right-0 p-4">
+        @ButtonES()
         <button class="flex items-center justify-center border-transparent"
             onclick="toggleTheme()">
             <img src="/img/icons/theme/light.svg" alt="Icon" class="w-6 h-6 mr-2 hidden dark:inline"/>
@@ -89,7 +98,7 @@ templ ThemeButton () {
     </div>
 }
 
-templ ProfileInfo(profile models.Profile) {
+templ ProfileInfo(profile structure.Profile) {
     <div class="sm:flex space-x-10 md:space-x-20 justify-center">
         <div class="hidden md:flex justify-end py-14">
             <img class="max-w-32 max-h-32 dark:text-white rounded-full mx-auto sm:mx-0 sm:shrink-0" src="/img/profile.jpg" alt="Profile photo" />
@@ -124,18 +133,18 @@ templ languageTags(languages []string){
     </div>
 }
 
-templ LanguageBio(info models.InfoBio) {
+templ LanguageBio(info structure.InfoBio) {
     <div class="flex w-full space-x-20 justify-center bg-mantle sm:col-span-2 my-0">
         <div class="flex flex-col gap-12 w-5/6 pt-5 pb-20 justify-center mx-auto">
             <div class="flex flex-col gap-3 mx-auto max-w-fit">
-                <h2 class="text-3xl leading-10 font-bold text-lavender text-left">About<span class="text-primary">.</span></h2>
+                <h2 class="text-3xl leading-10 font-bold text-lavender text-left">{info.Title}<span class="text-primary">.</span></h2>
                 <p class="text-subtext0 text-xl max-w-4xl pb-10">{info.Introduction}</p>
-                @SkillsCategoryTemplate(info.Skills)
+                @SkillsCategoryTemplate(info.SkillCategories)
             </div>
         </div>
     </div>
 }
-templ SkillsCategoryTemplate(stack []models.SkillCategory) {
+templ SkillsCategoryTemplate(stack []structure.SkillCategory) {
     <div class="flex flex-col gap-12 lg:flex-row lg:gap-20">
         for _, category := range stack {
             <div class="flex flex-col gap-5">

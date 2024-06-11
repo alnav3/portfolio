@@ -2,15 +2,26 @@ package scripts
 
 templ initLanguage() {
     <script>
-        function setLanguagePreference() {
+        function setLanguagePreference(){
             if (!localStorage.getItem('preferredLanguage')) {
                 let language = (navigator.language || navigator.userLanguage).substring(0,2);
                 localStorage.setItem('preferredLanguage', language);
             }
         }
 
+        function setLanguage(language) {
+            console.log("Setting language to: " + language);
+            localStorage.setItem('preferredLanguage', language);
+            return language
+        }
+
         function getLanguage(){
-            return localStorage.getItem('preferredLanguage');
+            if (!localStorage.getItem('preferredLanguage')) {
+                let language = localStorage.getItem('preferredLanguage');
+                return localStorage.getItem('preferredLanguage');
+            } else {
+                return "en"
+            }
         }
 
         //TODO: delete this afterwards or else

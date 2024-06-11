@@ -10,6 +10,16 @@ import "context"
 import "io"
 import "bytes"
 
+import "structure"
+
+var homelabItems = []structure.Homelab{
+	{Title: "Title", Description: "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools.", ImgURL: "/img/homelab/HomeAssistant.svg"},
+	{Title: "Title", Description: "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools.", ImgURL: "/img/homelab/HomeAssistant.svg"},
+	{Title: "Title", Description: "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools.", ImgURL: "/img/homelab/HomeAssistant.svg"},
+	{Title: "Title", Description: "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools.", ImgURL: "/img/homelab/HomeAssistant.svg"},
+	{Title: "Title", Description: "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools.", ImgURL: "/img/homelab/HomeAssistant.svg"},
+}
+
 func Homelab() templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
@@ -27,8 +37,47 @@ func Homelab() templ.Component {
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
-		for i := 0; i < 5; i++ {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"https://www.github.com\" class=\"grid grid-cols-2 gap-6 bg-mantle rounded-lg mx-5 my-5\n                hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2\"><img src=\"/img/homelab/HomeAssistant.svg\" alt=\"Project 6\" width=\"300\" height=\"200\" class=\"object-cover w-full h-full rounded-l-lg\" style=\"aspect-ratio:300/200;object-fit:cover\"><div class=\"my-5 mr-5\"><p class=\" text-center text-xl font-bold tracking-tighter sm:text-2xl text-text\">Title</p><p class=\"text-center text-sm text-subtext0\">A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools.</p></div></a>")
+		for _, homelabItem := range homelabItems {
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<a href=\"https://www.github.com\" class=\"grid grid-cols-2 gap-6 bg-mantle rounded-lg mx-5 my-5\n                hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2\"><img src=\"")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var2 string
+			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(homelabItem.ImgURL)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/homelab.templ`, Line: 18, Col: 48}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" alt=\"Project 6\" width=\"300\" height=\"200\" class=\"object-cover w-full h-full rounded-l-lg\" style=\"aspect-ratio:300/200;object-fit:cover\"><div class=\"my-5 mr-5\"><p class=\" text-center text-xl font-bold tracking-tighter sm:text-2xl text-text\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var3 string
+			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(homelabItem.Title)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/homelab.templ`, Line: 21, Col: 123}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p><p class=\"text-center text-sm text-subtext0\">")
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			var templ_7745c5c3_Var4 string
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(homelabItem.Description)
+			if templ_7745c5c3_Err != nil {
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/homelab.templ`, Line: 22, Col: 93}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
+			if templ_7745c5c3_Err != nil {
+				return templ_7745c5c3_Err
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</p></div></a>")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

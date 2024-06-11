@@ -1,0 +1,90 @@
+[Profile]
+Name = "Alex Navia"
+JobTitle = "Software Engineer"
+Bio = "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."
+
+[InfoBio]
+Title = "About"
+Introduction = "Hi there! I'm Alex Navia Santos, a backend developer with a flair for Golang, Java, and crafting sleek web interfaces using HTML with Tailwind CSS. My focus is on building efficient, scalable backends in Spring Boot. Committed to lifelong learning, I thrive on enhancing my skills to stay at the forefront of backend technologies."
+
+[[InfoBio.SkillCategories]]
+Title = "Languages"
+IconURL= "/img/icons/golang.svg"
+[[InfoBio.SkillCategories.Skills]]
+Name= "Go"
+IconURL= "/img/icons/golang.svg"
+[[InfoBio.SkillCategories.Skills]]
+Name= "Java"
+IconURL= "/img/icons/java.svg"
+[[InfoBio.SkillCategories.Skills]]
+Name= "Html"
+IconURL= "/img/icons/html.svg"
+[[InfoBio.SkillCategories.Skills]]
+Name= "CSS"
+IconURL= "/img/icons/css.svg"
+
+[[InfoBio.SkillCategories]]
+Title = "Frameworks"
+[[InfoBio.SkillCategories.Skills]]
+Name= "Spring"
+IconURL= "/img/icons/spring.svg"
+[[InfoBio.SkillCategories.Skills]]
+Name= "Tailwind"
+IconURL= "/img/icons/tailwind.svg"
+
+[[InfoBio.SkillCategories]]
+Title = "Tech Stack"
+[[InfoBio.SkillCategories.Skills]]
+Name= "Git"
+IconURL= "/img/icons/git.svg"
+[[InfoBio.SkillCategories.Skills]]
+Name= "Docker"
+IconURL= "/img/icons/docker.svg"
+[[InfoBio.SkillCategories.Skills]]
+Name= "Neovim"
+IconURL= "/img/icons/neovim.svg"
+
+[[NavItems]]
+Name = "Experience"
+Id = "experience"
+[[NavItems]]
+Name = "Projects"
+Id = "projects"
+[[NavItems]]
+Name = "Homelab"
+Id = "homelab"
+
+[[Experiences]]
+Name = "Alvea"
+Date = "July, 2023"
+Position = "Senior backend developer"
+Description = "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."
+PresentDesc = "Present"
+[[Experiences]]
+Name = "Cleverpy"
+Date = "February, 2023"
+Position = "Senior backend developer"
+Description = "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."
+[[Experiences]]
+Name = "Capgemini"
+Date = "January, 2021"
+Position = "Junior Backend Developer"
+Description = "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."
+
+[[Projects]]
+Title = "Portfolio Website"
+Description = "This is the portfolio website of Alex Navia. I'm currently working on it."
+Languages = ["HTML", "Tailwind", "Go"]
+[[Projects]]
+Title = "HTML"
+Description = "This is a description"
+Languages = ["HTML", "Tailwind", "Go"]
+[[Projects]]
+Title = "Tailwind"
+Description = "This is a description"
+Languages = ["HTML", "Tailwind", "Go"]
+
+[[Homelab]]
+Title = "Title"
+Description = "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools."
+ImgURL = "/img/homelab.jpg"

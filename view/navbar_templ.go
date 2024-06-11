@@ -10,15 +10,12 @@ import "context"
 import "io"
 import "bytes"
 
-type navItems struct {
-	name string
-	id   string
-}
+import "structure"
 
-var items = []navItems{
-	{name: "Experience", id: "experience"},
-	{name: "Projects", id: "projects"},
-	{name: "Homelab", id: "homelab"},
+var items = []structure.NavItems{
+	{Name: "Experience", Id: "experience"},
+	{Name: "Projects", Id: "projects"},
+	{Name: "Homelab", Id: "homelab"},
 }
 
 func printEndpoint(id string) string {
@@ -48,14 +45,14 @@ func Navbar(position int, child templ.Component) templ.Component {
 				return templ_7745c5c3_Err
 			}
 			if i != position {
-				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<button id=\"")
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<button Id=\"")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 				var templ_7745c5c3_Var2 string
-				templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(item.id)
+				templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(item.Id)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 27, Col: 43}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 25, Col: 43}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
 				if templ_7745c5c3_Err != nil {
@@ -66,9 +63,9 @@ func Navbar(position int, child templ.Component) templ.Component {
 					return templ_7745c5c3_Err
 				}
 				var templ_7745c5c3_Var3 string
-				templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(printEndpoint(item.id))
+				templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(printEndpoint(item.Id))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 29, Col: 62}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 27, Col: 62}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 				if templ_7745c5c3_Err != nil {
@@ -79,9 +76,9 @@ func Navbar(position int, child templ.Component) templ.Component {
 					return templ_7745c5c3_Err
 				}
 				var templ_7745c5c3_Var4 string
-				templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(item.name)
+				templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(item.Name)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 31, Col: 38}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 29, Col: 38}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 				if templ_7745c5c3_Err != nil {
@@ -92,14 +89,14 @@ func Navbar(position int, child templ.Component) templ.Component {
 					return templ_7745c5c3_Err
 				}
 			} else {
-				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<button id=\"")
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<button Id=\"")
 				if templ_7745c5c3_Err != nil {
 					return templ_7745c5c3_Err
 				}
 				var templ_7745c5c3_Var5 string
-				templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(item.id)
+				templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(item.Id)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 35, Col: 43}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 33, Col: 43}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 				if templ_7745c5c3_Err != nil {
@@ -110,9 +107,9 @@ func Navbar(position int, child templ.Component) templ.Component {
 					return templ_7745c5c3_Err
 				}
 				var templ_7745c5c3_Var6 string
-				templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(printEndpoint(item.id))
+				templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(printEndpoint(item.Id))
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 38, Col: 58}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 36, Col: 58}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 				if templ_7745c5c3_Err != nil {
@@ -123,9 +120,9 @@ func Navbar(position int, child templ.Component) templ.Component {
 					return templ_7745c5c3_Err
 				}
 				var templ_7745c5c3_Var7 string
-				templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(item.name)
+				templ_7745c5c3_Var7, templ_7745c5c3_Err = templ.JoinStringErrs(item.Name)
 				if templ_7745c5c3_Err != nil {
-					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 40, Col: 38}
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/navbar.templ`, Line: 38, Col: 38}
 				}
 				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var7))
 				if templ_7745c5c3_Err != nil {

@@ -23,7 +23,7 @@ func initLanguage() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<script>\n        function setLanguagePreference() {\n            if (!localStorage.getItem('preferredLanguage')) {\n                let language = (navigator.language || navigator.userLanguage).substring(0,2);\n                localStorage.setItem('preferredLanguage', language);\n            }\n        }\n\n        function getLanguage(){\n            return localStorage.getItem('preferredLanguage');\n        }\n\n        //TODO: delete this afterwards or else\n        setLanguagePreference();\n    </script>")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<script>\n        function setLanguagePreference(){\n            if (!localStorage.getItem('preferredLanguage')) {\n                let language = (navigator.language || navigator.userLanguage).substring(0,2);\n                localStorage.setItem('preferredLanguage', language);\n            }\n        }\n\n        function setLanguage(language) {\n            console.log(\"Setting language to: \" + language);\n            localStorage.setItem('preferredLanguage', language);\n            return language\n        }\n\n        function getLanguage(){\n            if (!localStorage.getItem('preferredLanguage')) {\n                let language = localStorage.getItem('preferredLanguage');\n                return localStorage.getItem('preferredLanguage');\n            } else {\n                return \"en\"\n            }\n        }\n\n        //TODO: delete this afterwards or else\n        setLanguagePreference();\n    </script>")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}

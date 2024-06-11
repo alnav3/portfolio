@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"net/http"
 	"view"
 
@@ -15,6 +16,18 @@ func main() {
 	})
 
     // Manejador para la ruta "/projects"
+    http.HandleFunc("/language", func(w http.ResponseWriter, r *http.Request) {
+        language := r.FormValue("language")
+        fmt.Println(language)
+        if (language == "EN") {
+            c := view.ButtonES()
+            templ.Handler(c).ServeHTTP(w, r)
+        } else {
+            c := view.ButtonEN()
+            templ.Handler(c).ServeHTTP(w, r)
+        }
+    })
+
     http.HandleFunc("/projects", func(w http.ResponseWriter, r *http.Request) {
         c := view.Navbar(1, view.Projects())
         templ.Handler(c).ServeHTTP(w, r)
@@ -22,7 +35,7 @@ func main() {
 
     // Manejador para la ruta "/experience"
 	http.HandleFunc("/experience", func(w http.ResponseWriter, r *http.Request) {
-		c := view.Navbar(0, view.Experience())
+		c := view.Navbar(0, view.DrawExperience())
 		templ.Handler(c).ServeHTTP(w, r)
 	})
 

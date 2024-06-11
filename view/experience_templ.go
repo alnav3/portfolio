@@ -10,20 +10,15 @@ import "context"
 import "io"
 import "bytes"
 
-type experience struct {
-	name        string
-	date        string
-	position    string
-	description string
+import "structure"
+
+var experiences = []structure.Experience{
+	{Name: "Alvea", Date: "July, 2023", Position: "Senior backend developer", Description: "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js.", PresentDesc: "Present"},
+	{Name: "Cleverpy", Date: "February, 2023", Position: "Senior backend developer", Description: "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."},
+	{Name: "Capgemini", Date: "January, 2021", Position: "Junior backend developer", Description: "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."},
 }
 
-var experiences = []experience{
-	{name: "Alvea", date: "July, 2023", position: "Senior backend developer", description: "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."},
-	{name: "Cleverpy", date: "February, 2023", position: "Senior backend developer", description: "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."},
-	{name: "Capgemini", date: "January, 2021", position: "Junior backend developer", description: "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."},
-}
-
-func Experience() templ.Component {
+func DrawExperience() templ.Component {
 	return templ.ComponentFunc(func(ctx context.Context, templ_7745c5c3_W io.Writer) (templ_7745c5c3_Err error) {
 		templ_7745c5c3_Buffer, templ_7745c5c3_IsBuffer := templ_7745c5c3_W.(*bytes.Buffer)
 		if !templ_7745c5c3_IsBuffer {
@@ -36,21 +31,40 @@ func Experience() templ.Component {
 			templ_7745c5c3_Var1 = templ.NopComponent
 		}
 		ctx = templ.ClearChildren(ctx)
-		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"navbar-content\" class=\"flex flex-col items-center mt-8 mb-8\"><!-- Línea Vertical --><div class=\"relative border-l-2 border-gray-500 max-w-xs md:max-w-xl lg:max-w-3xl\"><h3 class=\"text-sm font-semibold mx-3 mb-3 text-left dark:text-white\">Present</h3><!-- Elemento de la Línea de Tiempo -->")
+		_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div id=\"navbar-content\" class=\"flex flex-col items-center mt-8 mb-8\"><!-- Línea Vertical --><div class=\"relative border-l-2 border-gray-500 max-w-xs md:max-w-xl lg:max-w-3xl\"><!-- Elemento de la Línea de Tiempo -->")
 		if templ_7745c5c3_Err != nil {
 			return templ_7745c5c3_Err
 		}
 		for _, experience := range experiences {
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<div class=\"flex flex-col items-start max-w-fit\"><div class=\"relative bg-mantle p-4 text-left ml-5 mb-3 rounded-lg shadow min-w-fit\"><p class=\" text-xl font-bold sm:text-2xl text-text\">")
+			if experience.PresentDesc != "" {
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("<h3 class=\"text-sm font-semibold mx-3 mb-3 text-left dark:text-white\">")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				var templ_7745c5c3_Var2 string
+				templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(experience.PresentDesc)
+				if templ_7745c5c3_Err != nil {
+					return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/experience.templ`, Line: 18, Col: 113}
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+				_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("</h3>")
+				if templ_7745c5c3_Err != nil {
+					return templ_7745c5c3_Err
+				}
+			}
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" <div class=\"flex flex-col items-start max-w-fit\"><div class=\"relative bg-mantle p-4 text-left ml-5 mb-3 rounded-lg shadow min-w-fit\"><p class=\" text-xl font-bold sm:text-2xl text-text\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var2 string
-			templ_7745c5c3_Var2, templ_7745c5c3_Err = templ.JoinStringErrs(experience.name)
+			var templ_7745c5c3_Var3 string
+			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(experience.Name)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/experience.templ`, Line: 26, Col: 92}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/experience.templ`, Line: 22, Col: 92}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var2))
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -58,12 +72,12 @@ func Experience() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var3 string
-			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(experience.position)
+			var templ_7745c5c3_Var4 string
+			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(experience.Position)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/experience.templ`, Line: 27, Col: 74}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/experience.templ`, Line: 23, Col: 74}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -71,12 +85,12 @@ func Experience() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var4 string
-			templ_7745c5c3_Var4, templ_7745c5c3_Err = templ.JoinStringErrs(experience.description)
+			var templ_7745c5c3_Var5 string
+			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(experience.Description)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/experience.templ`, Line: 28, Col: 72}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/experience.templ`, Line: 24, Col: 72}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var4))
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
@@ -84,12 +98,12 @@ func Experience() templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			var templ_7745c5c3_Var5 string
-			templ_7745c5c3_Var5, templ_7745c5c3_Err = templ.JoinStringErrs(experience.date)
+			var templ_7745c5c3_Var6 string
+			templ_7745c5c3_Var6, templ_7745c5c3_Err = templ.JoinStringErrs(experience.Date)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/experience.templ`, Line: 30, Col: 106}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/experience.templ`, Line: 26, Col: 106}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var5))
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var6))
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}

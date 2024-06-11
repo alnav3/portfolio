@@ -1,33 +1,29 @@
 package view
 
-type experience struct {
-    name string
-    date string
-    position string
-    description string
+import "structure"
+
+var experiences = []structure.Experience{
+    {Name:"Alvea", Date:"July, 2023", Position:"Senior backend developer", Description:"Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js.", PresentDesc:"Present"},
+    {Name:"Cleverpy", Date:"February, 2023", Position:"Senior backend developer", Description:"Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."},
+    {Name:"Capgemini", Date:"January, 2021", Position:"Junior backend developer", Description:"Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."},
 }
 
-var experiences = []experience{
-    {name:"Alvea", date:"July, 2023", position:"Senior backend developer", description:"Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."},
-    {name:"Cleverpy", date:"February, 2023", position:"Senior backend developer", description:"Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."},
-    {name:"Capgemini", date:"January, 2021", position:"Junior backend developer", description:"Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."},
-}
-
-templ Experience() {
+templ DrawExperience() {
     <div id="navbar-content" class="flex flex-col items-center mt-8 mb-8">
         <!-- Línea Vertical -->
         <div class="relative border-l-2 border-gray-500 max-w-xs md:max-w-xl lg:max-w-3xl">
-            <h3 class="text-sm font-semibold mx-3 mb-3 text-left dark:text-white">Present</h3>
             <!-- Elemento de la Línea de Tiempo -->
             for _, experience := range experiences {
-
+                if experience.PresentDesc != "" {
+                    <h3 class="text-sm font-semibold mx-3 mb-3 text-left dark:text-white">{experience.PresentDesc}</h3>
+                }
                 <div class="flex flex-col items-start max-w-fit">
                     <div class="relative bg-mantle p-4 text-left ml-5 mb-3 rounded-lg shadow min-w-fit">
-                        <p class=" text-xl font-bold sm:text-2xl text-text">{experience.name}</p>
-                        <p class="text-subtext1 mb-2">{experience.position}</p>
-                        <p class="text-subtext0">{experience.description}</p>
+                        <p class=" text-xl font-bold sm:text-2xl text-text">{experience.Name}</p>
+                        <p class="text-subtext1 mb-2">{experience.Position}</p>
+                        <p class="text-subtext0">{experience.Description}</p>
                     </div>
-                    <h3 class="text-sm font-semibold mx-3 mb-3 text-left dark:text-white">{experience.date}</h3>
+                    <h3 class="text-sm font-semibold mx-3 mb-3 text-left dark:text-white">{experience.Date}</h3>
                 </div>
             }
         </div>

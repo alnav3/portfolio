@@ -1,15 +1,13 @@
 package view
 
-type navItems struct {
-    name string
-    id string
-    }
+import "structure"
 
 
-var items = []navItems{
-    {name:"Experience", id:"experience"},
-    {name:"Projects", id:"projects"},
-    {name:"Homelab", id:"homelab"},
+
+var items = []structure.NavItems {
+    {Name:"Experience", Id:"experience"},
+    {Name:"Projects", Id:"projects"},
+    {Name:"Homelab", Id:"homelab"},
 }
 
 func printEndpoint(id string) string {
@@ -24,20 +22,20 @@ templ Navbar(position int, child templ.Component) {
                 for i, item := range items {
                 <li class="flex-1">
                     if i != position {
-                        <button id={item.id} class="flex items-center justify-center w-full h-fit
+                        <button Id={item.Id} class="flex items-center justify-center w-full h-fit
                                 text-text hover:bg-gray-700 hover:text-white rounded-lg p-2 font-bold"
-                                hx-get={printEndpoint(item.id)} hx-target="#navbar"
+                                hx-get={printEndpoint(item.Id)} hx-target="#navbar"
                                 hx-swap="innerHTML transition:true">
-                            {item.name}
+                            {item.Name}
                         </button>
                     }
                     else {
-                        <button id={item.id} class="flex
+                        <button Id={item.Id} class="flex
                             items-center justify-center w-full h-full rounded-lg p-2 bg-mauve border-transparent
                             text-surface0 font-bold"
-                            hx-get={printEndpoint(item.id)} hx-target="#navbar"
+                            hx-get={printEndpoint(item.Id)} hx-target="#navbar"
                             hx-swap="innerHTML transition:true">
-                            {item.name}
+                            {item.Name}
                         </button>
                     }
                 </li>
