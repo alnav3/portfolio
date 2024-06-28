@@ -1,7 +1,7 @@
 ARG APP_NAME=app
 
 # Build stage
-FROM golang:1.21.2 as build
+FROM golang:1.22.4 as build
 ARG APP_NAME
 ENV APP_NAME=main
 WORKDIR /app
