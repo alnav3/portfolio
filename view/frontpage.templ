@@ -2,27 +2,34 @@ package view
 
 import (
     "structure"
-    "scripts"
 )
 
-templ Base() {
+templ Base(theme string) {
     <!doctype html>
     <html>
         <head>
             <meta charset="UTF-8"/>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             <link href="/style/tailwind.css" rel="stylesheet"/>
-            @scripts.Init()
         </head>
-        <body id="frontpage" class="dark:mocha bg-base" hx-trigger="load" hx-vals='js:{"language": setLanguagePreference(), "position": 0}' hx-post="/language">
-        <!-- htmx -->
-        <script src="/js/htmx.min.js"></script>
+        <body>
+        if theme == "dark" {
+            <div id="frontpage" class="dark dark:mocha bg-base dark:text-surface0" hx-trigger="load"  hx-post="/language">
+                <!-- htmx -->
+                <script src="/js/htmx.min.js"></script>
+            </div>
+        } else {
+            <div id="frontpage" class="dark:mocha bg-base dark:text-surface0" hx-trigger="load"  hx-post="/language">
+                <!-- htmx -->
+                <script src="/js/htmx.min.js"></script>
+            </div>
+        }
         </body>
     </html>
 }
 
-templ HomePage(webtext structure.WebText, language string, position int, child templ.Component) {
-    @ThemeButton(language)
+templ HomePage(webtext structure.WebText, language, theme string, position int, child templ.Component) {
+    @ThemeButton(language, theme)
     @ProfileInfo(webtext.Profile)
     @LanguageBio(webtext.InfoBio)
     @Navbar(position, webtext.NavItems, child)
@@ -31,39 +38,51 @@ templ HomePage(webtext structure.WebText, language string, position int, child t
 }
 templ ButtonEN() {
     <button class="flex mr-5 items-center justify-center w-16 h-6 text-white rounded-lg overflow-hidden"
-        hx-vals='js:{"language": setLanguage("es"), "position": getPosition()}' hx-post="/language"
-        hx-swap="outerHTML" hx-target="#frontpage">
+        hx-vals='js:{"language": "es"}' hx-post="/language"
+        hx-swap="innerHTML" hx-target="#frontpage">
         <span class="flex items-center justify-center font-bold bg-mauve text-base dark:text-surface0 h-full w-full">EN</span>
         <span class="flex items-center justify-center font-bold bg-mantle text-text h-full w-full">ES</span>
     </button>
-
-    <button class="items-center justify-center border-transparent hidden"
-        hx-vals='js:{"language": setLanguage("en"), "position": getPosition()}' hx-post="/language"
-        hx-swap="outerHTML" hx-target="#frontpage">EN</button>
 }
 
 templ ButtonES() {
     <button class="flex mr-5 items-center justify-center w-16 h-6 text-white rounded-lg overflow-hidden"
-        hx-vals='js:{"language": setLanguage("en"), "position": getPosition()}' hx-post="/language"
-        hx-swap="outerHTML" hx-target="#frontpage">
+        hx-vals='js:{"language": "en"}' hx-post="/language"
+        hx-swap="innerHTML" hx-target="#frontpage">
         <span class="flex items-center justify-center font-bold bg-mantle text-text h-full w-full">EN</span>
         <span class="flex items-center justify-center font-bold bg-mauve text-base dark:text-surface0 h-full w-full">ES</span>
     </button>
 }
 
-templ ThemeButton (language string) {
+templ ThemeButton (language string, theme string) {
     <div class="flex fixed top-0 right-0 p-4">
         if language == "en" {
             @ButtonEN()
         } else {
             @ButtonES()
         }
-        <button class="flex items-center justify-center border-transparent"
-            onclick="toggleTheme()">
-            <img src="/img/icons/theme/light.svg" alt="Icon" class="w-6 h-6 mr-2 hidden dark:inline"/>
-            <img src="/img/icons/theme/dark.svg" alt="Icon" class="w-6 h-6 mr-2 dark:hidden"/>
-        </button>
+        if theme == "dark" {
+            @LightButton()
+        } else {
+            @DarkButton()
+        }
     </div>
+}
+
+templ LightButton() {
+    <button class="flex items-center justify-center border-transparent"
+        onclick="htmx.removeClass(htmx.find('#frontpage'), 'dark')"
+        hx-get="/theme" hx-target="this" hx-swap="outerHTML">
+        <img src="/img/icons/theme/light.svg" alt="Icon" class="w-6 h-6 mr-2 inline"/>
+    </button>
+}
+
+templ DarkButton() {
+    <button class="flex items-center justify-center border-transparent"
+        onclick="htmx.addClass(htmx.find('#frontpage'), 'dark')"
+        hx-get="/theme" hx-target="this" hx-swap="outerHTML">
+        <img src="/img/icons/theme/dark.svg" alt="Icon" class="w-6 h-6 mr-2"/>
+    </button>
 }
 
 templ ProfileInfo(profile structure.Profile) {

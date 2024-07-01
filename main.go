@@ -3,21 +3,57 @@ package main
 import (
 	"net/http"
 	"path"
-	"strconv"
 	"structure"
 	"view"
 
 	"github.com/BurntSushi/toml"
 	"github.com/a-h/templ"
+	"github.com/gorilla/sessions"
 )
 
 var webtext structure.WebText
 var navbarComponents map[int]templ.Component
+var store = sessions.NewCookieStore([]byte("secret-key"))
 
 func main() {
 	// Manejador para la ruta "/"
 	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		c := view.Base()
+        session, _ := store.Get(r, "preferences")
+        session.Values["position"] = 0
+        //get theme from cookies
+        theme, ok := session.Values["theme"].(string)
+        if !ok {
+            theme = "dark"
+        }
+
+        session.Values["theme"] = theme
+
+        session.Save(r, w)
+		c := view.Base(theme)
+		templ.Handler(c).ServeHTTP(w, r)
+	})
+
+	http.HandleFunc("/theme", func(w http.ResponseWriter, r *http.Request) {
+        session, _ := store.Get(r, "preferences")
+        //get theme from cookies
+        theme, ok := session.Values["theme"].(string)
+        if !ok {
+            theme = "dark"
+        }
+
+        //toggle theme
+        var c templ.Component
+        if theme == "dark" {
+            theme = "light"
+            c = view.DarkButton()
+        } else {
+            theme = "dark"
+            c = view.LightButton()
+        }
+
+        session.Values["theme"] = theme
+
+        session.Save(r, w)
 		templ.Handler(c).ServeHTTP(w, r)
 	})
 
@@ -26,19 +62,28 @@ func main() {
         getHomepage(w, r)
     })
 
+    // Manejador para la ruta "/experience"
+    http.HandleFunc("/experience", func(w http.ResponseWriter, r *http.Request) {
+        session, _ := store.Get(r, "preferences")
+        session.Values["position"] = 0
+        session.Save(r, w)
+        c := view.Navbar(0, webtext.NavItems, navbarComponents[0])
+        templ.Handler(c).ServeHTTP(w, r)
+    })
+
     http.HandleFunc("/projects", func(w http.ResponseWriter, r *http.Request) {
+        session, _ := store.Get(r, "preferences")
+        session.Values["position"] = 1
+        session.Save(r, w)
 		c := view.Navbar(1, webtext.NavItems, navbarComponents[1])
         templ.Handler(c).ServeHTTP(w, r)
     })
 
     // Manejador para la ruta "/experience"
-	http.HandleFunc("/experience", func(w http.ResponseWriter, r *http.Request) {
-		c := view.Navbar(0, webtext.NavItems, navbarComponents[0])
-		templ.Handler(c).ServeHTTP(w, r)
-	})
-
-    // Manejador para la ruta "/experience"
 	http.HandleFunc("/homelab", func(w http.ResponseWriter, r *http.Request) {
+        session, _ := store.Get(r, "preferences")
+        session.Values["position"] = 2
+        session.Save(r, w)
 		c := view.Navbar(2, webtext.NavItems, navbarComponents[2])
 		templ.Handler(c).ServeHTTP(w, r)
 	})
@@ -56,20 +101,41 @@ func main() {
 
 func getHomepage(w http.ResponseWriter, r *http.Request) {
     // select default language if not supported
-    language := r.FormValue("language")
-    if (language != "es" && language != "en") {
-        language = "en"
+    session, _ := store.Get(r, "preferences")
+    //get position from cookies
+    position , ok := session.Values["position"].(int)
+    if !ok {
+        position = 0
+        session.Values["position"] = position
     }
 
+    //get language from cookies
+    language := r.FormValue("language")
+    if (language != "es" && language != "en") {
+        language, ok = session.Values["language"].(string)
+        if !ok {
+            language = "en"
+        }
+    }
+
+    //get theme from cookies
+    theme, ok := session.Values["theme"].(string)
+    if !ok {
+        theme = "dark"
+    }
+
+    session.Values["theme"] = theme
+    session.Values["language"] = language
+    session.Save(r, w)
+
     // setup variables & get correct language file
-    position, _ := strconv.Atoi(r.FormValue("position"))
     configName := "webtext_" + language + ".toml"
     configpath := path.Join("resources", configName)
 
     // decode & render
     toml.DecodeFile(configpath, &webtext)
     navbarComponents = mapNavbarComponents()
-    c := view.HomePage(webtext, language, position, navbarComponents[position])
+    c := view.HomePage(webtext, language, theme, position, navbarComponents[position])
     templ.Handler(c).ServeHTTP(w, r)
 }
 

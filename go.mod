@@ -9,10 +9,12 @@ require (
 	view v0.0.0
 )
 
-require scripts v0.0.0 // indirect
+require github.com/gorilla/securecookie v1.1.2 // indirect
+
+require (
+	github.com/gorilla/sessions v1.3.0
+)
 
 replace view => ./view
 
 replace structure => ./struct
-
-replace scripts => ./view/scripts

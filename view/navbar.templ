@@ -6,10 +6,6 @@ func printEndpoint(id string) string {
     return "/"+id
 }
 
-templ build(i int){
-    @templ.JSONScript("position", i)
-}
-
 templ Navbar(position int,  items []structure.NavItems,child templ.Component) {
     <div id="navbar" class="transition ease-in-out">
         <nav class="sm:flex space-x-10 md:space-x-20 mx-auto max-w-4xl rounded-2xl bg-mantle mt-10 ">
@@ -25,7 +21,6 @@ templ Navbar(position int,  items []structure.NavItems,child templ.Component) {
                         </button>
                     }
                     else {
-                        @build(i)
                         <button Id={item.Id} class="flex
                             items-center justify-center w-full h-full rounded-lg p-2 bg-mauve border-transparent
                             text-base dark:text-surface0 font-bold"
