@@ -12,19 +12,17 @@ templ Base(theme string) {
             <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
             <link href="/style/tailwind.css" rel="stylesheet"/>
         </head>
-        <body>
         if theme == "dark" {
-            <div id="frontpage" class="dark dark:mocha bg-base dark:text-surface0" hx-trigger="load"  hx-post="/language">
+            <body id="frontpage" class="dark dark:mocha bg-base dark:text-surface0" hx-trigger="load"  hx-post="/language">
                 <!-- htmx -->
                 <script src="/js/htmx.min.js"></script>
-            </div>
+            </body>
         } else {
-            <div id="frontpage" class="dark:mocha bg-base dark:text-surface0" hx-trigger="load"  hx-post="/language">
+            <body id="frontpage" class="dark:mocha bg-base dark:text-surface0" hx-trigger="load"  hx-post="/language">
                 <!-- htmx -->
                 <script src="/js/htmx.min.js"></script>
-            </div>
+            </body>
         }
-        </body>
     </html>
 }
 
@@ -61,29 +59,16 @@ templ ThemeButton (language string, theme string) {
         } else {
             @ButtonES()
         }
-        if theme == "dark" {
-            @LightButton()
-        } else {
-            @DarkButton()
-        }
+        <img src="/img/icons/theme/light.svg" alt="Icon" class="w-6 h-6 mr-2 hidden dark:inline"
+            onclick="htmx.removeClass(htmx.find('#frontpage'), 'dark')"
+            hx-get="/theme" hx-target="this" hx-swap="none"/>
+
+        <img src="/img/icons/theme/dark.svg" alt="Icon" class="w-6 h-6 mr-2 dark:hidden"
+            onclick="htmx.addClass(htmx.find('#frontpage'), 'dark')"
+            hx-get="/theme" hx-target="this" hx-swap="none">
     </div>
 }
 
-templ LightButton() {
-    <button class="flex items-center justify-center border-transparent"
-        onclick="htmx.removeClass(htmx.find('#frontpage'), 'dark')"
-        hx-get="/theme" hx-target="this" hx-swap="outerHTML">
-        <img src="/img/icons/theme/light.svg" alt="Icon" class="w-6 h-6 mr-2 inline"/>
-    </button>
-}
-
-templ DarkButton() {
-    <button class="flex items-center justify-center border-transparent"
-        onclick="htmx.addClass(htmx.find('#frontpage'), 'dark')"
-        hx-get="/theme" hx-target="this" hx-swap="outerHTML">
-        <img src="/img/icons/theme/dark.svg" alt="Icon" class="w-6 h-6 mr-2"/>
-    </button>
-}
 
 templ ProfileInfo(profile structure.Profile) {
     <div class="sm:flex space-x-10 md:space-x-20 justify-center">

@@ -660,10 +660,6 @@ video {
   margin-top: 2rem;
 }
 
-.inline {
-  display: inline;
-}
-
 .flex {
   display: flex;
 }
@@ -1233,6 +1229,14 @@ video {
   .lg\:gap-20 {
     gap: 5rem;
   }
+}
+
+.dark\:inline:where(.dark, .dark *) {
+  display: inline;
+}
+
+.dark\:hidden:where(.dark, .dark *) {
+  display: none;
 }
 
 .dark\:text-gray-400:where(.dark, .dark *) {

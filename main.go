@@ -42,19 +42,19 @@ func main() {
         }
 
         //toggle theme
-        var c templ.Component
         if theme == "dark" {
             theme = "light"
-            c = view.DarkButton()
         } else {
             theme = "dark"
-            c = view.LightButton()
         }
 
         session.Values["theme"] = theme
 
         session.Save(r, w)
-		templ.Handler(c).ServeHTTP(w, r)
+
+        // Respond with the new theme
+        w.Header().Set("Content-Type", "text/plain")
+        w.Write([]byte(theme))
 	})
 
     // Manejador para la ruta "/language"
