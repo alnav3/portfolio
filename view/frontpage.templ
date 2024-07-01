@@ -59,13 +59,18 @@ templ ThemeButton (language string, theme string) {
         } else {
             @ButtonES()
         }
-        <img src="/img/icons/theme/light.svg" alt="Icon" class="w-6 h-6 mr-2 hidden dark:inline"
+        <button
             onclick="htmx.removeClass(htmx.find('#frontpage'), 'dark')"
-            hx-get="/theme" hx-target="this" hx-swap="none"/>
+            hx-get="/theme" hx-target="this" hx-swap="none">
+            <img src="/img/icons/theme/light.svg" alt="Icon" class="w-6 h-6 mr-2 hidden dark:inline"/>
+        </button>
 
-        <img src="/img/icons/theme/dark.svg" alt="Icon" class="w-6 h-6 mr-2 dark:hidden"
+        <button
             onclick="htmx.addClass(htmx.find('#frontpage'), 'dark')"
             hx-get="/theme" hx-target="this" hx-swap="none">
+            <img src="/img/icons/theme/dark.svg" alt="Icon" class="w-6 h-6 mr-2 dark:hidden"/>
+        </button>
+
     </div>
 }
 
