@@ -59,7 +59,7 @@ Id = "homelab"
 Name = "Alvea, Accenture"
 Date = "Julio, 2023"
 Position = "Desarrollador de backend senior"
-Description = "En mi rol actual, desarrollo sistemas backend para el Banco Santander utilizando Java y Spring, enfocándome en la creación de orquestadores y microservicios desde cero. Gestiono la modificación de contenedores con OpenShift y manejo rutas y gateways. Además, implemento pipelines de CI/CD con Jenkins, supervisando las versiones y despliegues a entornos de certificación y preproducción. Mi trabajo implica colaborar con bases de datos relacionales y no relacionales para satisfacer diversas necesidades de datos."
+Description = "En mi rol actual, desarrollo sistemas backend para el Banco Santander utilizando Java y Spring, enfocándome en la creación de orquestadores y microservicios desde cero. Gestiono la modificación de contenedores con OpenShift y manejo rutas y gateways. Además, implemento pipelines de CI/CD con Jenkins, supervisando las versiones y despliegues a entornos de certificación y preproducción. Mi posición implica trabajar con bases de datos relacionales y no relacionales para satisfacer diversas necesidades de datos."
 PresentDesc = "Actualidad"
 [[Experiences]]
 Name = "Cleverpy"
