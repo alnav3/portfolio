@@ -1,12 +1,36 @@
 [Profile]
 Name = "Alex Navia"
 JobTitle = "Software Developer"
-Bio = "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."
+Bio = "Backend developer with 4 years of experience in Java, Spring Boot, and Golang. Passionate about leveraging technology to develop innovative solutions for both business and personal challenges."
 ImgURL = "/img/profile.jpg"
 
 [InfoBio]
 Title = "About"
-Introduction = "Hi there! I'm Alex Navia Santos, a backend developer with a flair for Golang, Java, and crafting sleek web interfaces using HTML with Tailwind CSS. My focus is on building efficient, scalable backends in Spring Boot. Committed to lifelong learning, I thrive on enhancing my skills to stay at the forefront of backend technologies."
+Introduction = "Hi there! I'm a backend developer with a strong foundation in Golang, Java, and web interfaces. My focus is on building efficient, scalable backends using a variety of modern tools and technologies. I have extensive experience with relational databases, CI/CD processes, and container orchestration. My toolkit includes Jenkins, Openshift, SonarQube for testing and quality assurance, and Docker for deployment."
+Expanded = """
+Here are some of the key technologies and tools I use:
+
+- Languages and Frameworks:
+
+    - Java and Spring Boot: For developing robust and scalable applications.
+    - Golang: For high-performance, concurrent applications.
+    - HTML and Tailwind CSS: For creating clean, responsive web interfaces.
+
+- Databases:
+
+    - Relational Databases: Experienced with MySQL, PostgreSQL for handling structured data efficiently.
+
+- CI/CD and Deployment:
+
+    - Jenkins: For continuous integration and continuous deployment, ensuring smooth and automated delivery pipelines.
+    - Openshift: For managing containerized applications and orchestrating deployments.
+    - Docker: For containerization, facilitating scalable and portable application deployment.
+    - SonarQube: For testing and maintaining code quality, ensuring high standards in all my projects.
+- Testing and Quality Assurance:
+
+    - Mockito: For creating mock objects and writing unit tests.
+    - Postman: For testing API endpoints and ensuring reliable integrations.
+"""
 
 [[InfoBio.SkillCategories]]
 Title = "Languages"
@@ -56,34 +80,42 @@ Name = "Homelab"
 Id = "homelab"
 
 [[Experiences]]
-Name = "Alvea"
+Name = "Alvea, Accenture"
 Date = "July, 2023"
 Position = "Senior backend developer"
-Description = "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."
+Description = "In my current role, I develop backend systems for Santander Bank using Java and Spring, focusing on creating orchestrators and microservices from scratch. I manage containerization with OpenShift and handle routes and gateways. Additionally, I implement CI/CD pipelines with Jenkins, overseeing releases and deployments to certification and pre-production environments. My work involves collaborating with both relational and non-relational databases to support diverse data requirements."
 PresentDesc = "Present"
 [[Experiences]]
 Name = "Cleverpy"
 Date = "February, 2023"
 Position = "Senior backend developer"
-Description = "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."
+Description = "In this role, I developed REST APIs using Spring Boot, JPA, and PL/SQL, adapting other backend tools as required by the project. I was responsible for project configuration and maintenance, gaining experience in both hexagonal and multi-layer architectures."
 [[Experiences]]
 Name = "Capgemini"
 Date = "January, 2021"
 Position = "Junior Backend Developer"
-Description = "Passionate about creating amazing web experiences. I enjoy turning ideas into reality. I have experience working with JavaScript, React, and Next.js."
+Description = "During this period, I developed REST APIs and worked extensively with Spring Boot, JPA, and PL/SQL. I utilized various tools such as Jenkins, Kibana, Postman, JUnit 5, Mockito, RestAssured, and Lombok. Additionally, I supervised and supported junior developers, ensuring their integration and growth within the team."
 
 [[Projects]]
-Title = "Portfolio Website"
-Description = "This is the portfolio website of Alex Navia. I'm currently working on it."
-Languages = ["HTML", "Tailwind", "Go"]
+Title = "Portfolio"
+Description = "Developed a portfolio website to showcase my skills and projects, featuring a user-friendly interface with HTML, HTMX, and Tailwind CSS, and a Go backend for performance. Includes sections for work experience, side-projects, and my homelab websites, with responsive design for all devices. Integrates theme changes and language adjustments without using JavaScript at all. Linked with GitHub and LinkedIn for a comprehensive profile."
+Languages = ["HTMX", "Tailwind", "Go", "Dockerfile"]
 [[Projects]]
-Title = "HTML"
-Description = "This is a description"
-Languages = ["HTML", "Tailwind", "Go"]
+Title = "Split website"
+Description = "Developing SplitWeb, an open-source alternative to Splitwise, ensuring complete data encryption and privacy. Each user's data is fully encrypted with their personal key, inaccessible to anyone else, including the administrator. Using Turso for the database, SplitWeb is fully self-hostable, supporting both personal Turso keys and local SQLite databases. This project offers a secure and private solution for managing shared expenses."
+Languages = ["HTMX", "Tailwind", "Go", "Turso", "LibSQL", "Dockerfile"]
 [[Projects]]
-Title = "Tailwind"
-Description = "This is a description"
-Languages = ["HTML", "Tailwind", "Go"]
+Title = "Dotfiles"
+Description = "Maintaining a comprehensive set of dotfiles to set up my working environment from scratch and serve as a backup of all my configurations. The project uses GNU Stow to manage configuration files in a single place and includes my configurations for Neovim, Tmux, and Zsh. It also features a Nix environment backup with all required packages and a bash script for automatic installation, allowing me to start working on any computer within minutes."
+Languages = ["lua", "shell", "config"]
+[[Projects]]
+Title = "ZMK Configuration"
+Description = "Custom ZMK configuration for my split keyboard to meet my specific needs and optimize workflow. Enhances productivity by customizing key mappings and macros tailored to my requirements."
+Languages = [ "C" ]
+[[Projects]]
+Title = "Gitproject"
+Description = "A ChatGPT plugin written in Go, designed for simple interaction with GitHub repositories. Enhances ChatGPT applications by fetching repository information, searching for files, and identifying issues directly within the code."
+Languages = [ "Go", "Dockerfile" ]
 
 [[HomelabItems]]
 Title = "Title"

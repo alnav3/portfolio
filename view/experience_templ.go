@@ -49,14 +49,14 @@ func DrawExperience(experiences []structure.Experience) templ.Component {
 					return templ_7745c5c3_Err
 				}
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" <div class=\"flex flex-col items-start max-w-fit\"><div class=\"relative bg-mantle p-4 text-left ml-5 mb-3 rounded-lg shadow min-w-fit\"><p class=\" text-xl font-bold sm:text-2xl text-text\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(" <div class=\"flex flex-col items-start max-w-fit\"><div class=\"relative bg-mantle p-4 text-left ml-5 mb-3 rounded-lg shadow min-w-fit\"><p class=\"text-xl font-bold sm:text-2xl text-text\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
 			var templ_7745c5c3_Var3 string
 			templ_7745c5c3_Var3, templ_7745c5c3_Err = templ.JoinStringErrs(experience.Name)
 			if templ_7745c5c3_Err != nil {
-				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/experience.templ`, Line: 16, Col: 92}
+				return templ.Error{Err: templ_7745c5c3_Err, FileName: `view/experience.templ`, Line: 16, Col: 91}
 			}
 			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString(templ.EscapeString(templ_7745c5c3_Var3))
 			if templ_7745c5c3_Err != nil {

@@ -13,6 +13,10 @@ import (
 
 var webtext structure.WebText
 var navbarComponents map[int]templ.Component
+
+// i don't care of this key as i'm not storing data it's not available using javascript
+// it would be highly recommended to use a more secure key stored in an environment variable
+// if you are storing sensitive data
 var store = sessions.NewCookieStore([]byte("secret-key"))
 
 func main() {

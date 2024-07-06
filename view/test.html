@@ -4,12 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTMX removeClass Example</title>
+    <link href="../style/tailwind.css" rel="stylesheet">
     <script src="https://unpkg.com/htmx.org@1.8.5"></script>
 </head>
-<body>
-    <div id="my-div" class="myClass">This is a div</div>
-    <button onclick="htmx.removeClass(htmx.find('#my-div'), 'myClass')">Remove Class</button>
-    <button onclick="htmx.removeClass(htmx.find('#my-div'), 'myClass', 6000)">Remove Class with Delay</button>
+<body class="dark dark:bg-gray-900">
+    <div class="bg-gray-900 text-white p-6 rounded-lg">
+  <h2 class="text-2xl font-bold mb-4">About.</h2>
+  <details class="bg-gray-800 p-4 rounded-lg">
+    <summary class="cursor-pointer focus:outline-none ">Hi there! I'm Alex Navia Santos, a backend developer with a flair for Golang, Java, and crafting sleek web interfaces using HTML with Tailwind CSS. My focus is on building efficient, scalable backends in Spring Boot. Committed to lifelong learning, I thrive on enhancing my skills to stay at the forefront of backend technologies.</summary>
+    <p class="mt-4">I have extensive experience in:</p>
+    <ul class="list-disc list-inside ml-4 mt-2">
+      <li><strong>Java and Spring Boot:</strong> Building robust and scalable applications, leveraging Spring Boot for rapid development and microservices architecture.</li>
+      <li><strong>Golang:</strong> Developing high-performance applications with Go, ensuring concurrency and efficiency.</li>
+      <li><strong>HTML and Tailwind CSS:</strong> Creating clean, responsive web interfaces with modern design principles.</li>
+      <li><strong>Testing and CI/CD:</strong> Using tools like Mockito and Postman for comprehensive testing, and Jenkins for continuous integration and deployment, ensuring seamless and reliable software delivery.</li>
+      <li><strong>Containerization and Deployment:</strong> Utilizing Docker for containerization, and deploying applications in cloud environments, ensuring scalability and reliability.</li>
+    </ul>
+    <p class="mt-4">My passion for technology drives me to continuously improve and innovate, finding unique solutions to both business and personal challenges.</p>
+  </details>
+</div>
 </body>
 </html>
 
