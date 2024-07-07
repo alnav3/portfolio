@@ -99,22 +99,23 @@ Link = "https://github.com/alnav3/gitplugin"
 Languages = ["Go", "Dockerfile"]
 
 [[HomelabItems]]
-Title = "Título"
-Description = "Una plataforma de almacenamiento y colaboración en la nube autoalojada usando NextCloud y otras herramientas de código abierto."
-ImgURL = "/img/homelab/HomeAssistant.svg"
+Title = "Proxmox"
+Description = "Potente hypervisor que utilizo para gestionar máquinas virtuales, permitiéndome desplegar y probar sistemas operativos de manera eficiente."
+ImgURL = "/img/homelab/proxmox.png"
 [[HomelabItems]]
-Title = "Título"
-Description = "Una plataforma de almacenamiento y colaboración en la nube autoalojada usando NextCloud y otras herramientas de código abierto."
-ImgURL = "/img/homelab/HomeAssistant.svg"
+Title = "Coolify"
+Description = "Mi plataforma preferida para desplegar proyectos personales y contenedores Docker, proporcionando una alternativa autoalojada a los servicios en la nube."
+ImgURL = "/img/homelab/coolify.png"
 [[HomelabItems]]
-Title = "Título"
-Description = "Una plataforma de almacenamiento y colaboración en la nube autoalojada usando NextCloud y otras herramientas de código abierto."
-ImgURL = "/img/homelab/HomeAssistant.svg"
+Title = "Penpot"
+Description = "Una herramienta de diseño open source que utilizo para diseñar proyectos web, mejorando mi flujo de trabajo para proyectos front."
+ImgURL = "/img/homelab/penpot.svg"
 [[HomelabItems]]
-Title = "Título"
-Description = "Una plataforma de almacenamiento y colaboración en la nube autoalojada usando NextCloud y otras herramientas de código abierto."
-ImgURL = "/img/homelab/HomeAssistant.svg"
+Title = "Gitea"
+Description = "Un servicio Git ligero y open source para gestionar mis repositorios de proyectos y necesidades de control de versiones."
+ImgURL = "/img/homelab/gitea.png"
 [[HomelabItems]]
-Title = "Título"
-Description = "Una plataforma de almacenamiento y colaboración en la nube autoalojada usando NextCloud y otras herramientas de código abierto."
+Title = "Home Assistant"
+Description = "Una plataforma de código abierto que utilizo para automatizar y controlar dispositivos inteligentes del hogar, creando un ecosistema IoT centralizado."
 ImgURL = "/img/homelab/HomeAssistant.svg"
+

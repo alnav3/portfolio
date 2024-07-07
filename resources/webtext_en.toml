@@ -104,7 +104,7 @@ Languages = ["HTMX", "Tailwind", "Go", "Dockerfile"]
 [[Projects]]
 Title = "Split website"
 Description = "Developing SplitWeb, an open-source alternative to Splitwise, ensuring complete data encryption and privacy. Each user's data is fully encrypted with their personal key, inaccessible to anyone else, including the administrator. Using Turso for the database, SplitWeb is fully self-hostable, supporting both personal Turso keys and local SQLite databases. This project offers a secure and private solution for managing shared expenses."
-Link = "https://git.alnav.dev/alnav3/splitweb"
+Link = "https://github.com/alnav3/splitweb"
 Languages = ["HTMX", "Tailwind", "Go", "Turso", "LibSQL", "Dockerfile"]
 [[Projects]]
 Title = "Dotfiles"
@@ -123,23 +123,23 @@ Link = "https://github.com/alnav3/gitplugin"
 Languages = [ "Go", "Dockerfile" ]
 
 [[HomelabItems]]
-Title = "Title"
-Description = "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools."
-ImgURL = "/img/homelab/HomeAssistant.svg"
+Title = "Proxmox"
+Description = "A powerful virtualization platform I use to manage VMs and containers, allowing me to deploy and test various systems efficiently."
+ImgURL = "/img/homelab/proxmox.png"
 [[HomelabItems]]
-Title = "Title"
-Description = "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools."
-ImgURL = "/img/homelab/HomeAssistant.svg"
+Title = "Coolify"
+Description = "My go-to platform for deploying personal projects and Docker containers, providing a self-hosted alternative to cloud services."
+ImgURL = "/img/homelab/coolify.png"
 [[HomelabItems]]
-Title = "Title"
-Description = "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools."
-ImgURL = "/img/homelab/HomeAssistant.svg"
+Title = "Penpot"
+Description = "An open-source design tool I use for prototyping web projects, enhancing my development workflow from concept to implementation."
+ImgURL = "/img/homelab/penpot.svg"
 [[HomelabItems]]
-Title = "Title"
-Description = "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools."
-ImgURL = "/img/homelab/HomeAssistant.svg"
+Title = "Gitea"
+Description = "A lightweight, self-hosted Git service for managing my project repositories and version control needs."
+ImgURL = "/img/homelab/gitea.png"
 [[HomelabItems]]
-Title = "Title"
-Description = "A self-hosted cloud storage and collaboration platform using NextCloud and other open-source tools."
+Title = "Home Assistant"
+Description = "An open-source platform I use to automate and control smart home devices, creating a centralized IoT ecosystem."
 ImgURL = "/img/homelab/HomeAssistant.svg"
 

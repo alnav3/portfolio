@@ -43,7 +43,7 @@ func Homelab(homelabItems []structure.Homelab) templ.Component {
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
-			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" alt=\"Project 6\" width=\"300\" height=\"200\" class=\"object-cover w-full h-full rounded-l-lg\" style=\"aspect-ratio:300/200;object-fit:cover\"><div class=\"my-5 mr-5\"><p class=\" text-center text-xl font-bold tracking-tighter sm:text-2xl text-text\">")
+			_, templ_7745c5c3_Err = templ_7745c5c3_Buffer.WriteString("\" alt=\"Project 6\" width=\"300\" height=\"200\" class=\"object-contain w-full h-full rounded-l-lg\"><div class=\"my-5 mr-5\"><p class=\" text-center text-xl font-bold tracking-tighter sm:text-2xl text-text\">")
 			if templ_7745c5c3_Err != nil {
 				return templ_7745c5c3_Err
 			}
