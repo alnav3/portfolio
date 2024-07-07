@@ -70,11 +70,11 @@ Name= "Neovim"
 IconURL= "/img/icons/neovim.svg"
 
 [[NavItems]]
-Name = "Experience"
-Id = "experience"
-[[NavItems]]
 Name = "Projects"
 Id = "projects"
+[[NavItems]]
+Name = "Experience"
+Id = "experience"
 [[NavItems]]
 Name = "Homelab"
 Id = "homelab"
@@ -99,22 +99,27 @@ Description = "During this period, I developed REST APIs and worked extensively 
 [[Projects]]
 Title = "Portfolio"
 Description = "Developed a portfolio website to showcase my skills and projects, featuring a user-friendly interface with HTML, HTMX, and Tailwind CSS, and a Go backend for performance. Includes sections for work experience, side-projects, and my homelab websites, with responsive design for all devices. Integrates theme changes and language adjustments without using JavaScript at all. Linked with GitHub and LinkedIn for a comprehensive profile."
+Link = "https://github.com/alnav3/portfolio"
 Languages = ["HTMX", "Tailwind", "Go", "Dockerfile"]
 [[Projects]]
 Title = "Split website"
 Description = "Developing SplitWeb, an open-source alternative to Splitwise, ensuring complete data encryption and privacy. Each user's data is fully encrypted with their personal key, inaccessible to anyone else, including the administrator. Using Turso for the database, SplitWeb is fully self-hostable, supporting both personal Turso keys and local SQLite databases. This project offers a secure and private solution for managing shared expenses."
+Link = "https://git.alnav.dev/alnav3/splitweb"
 Languages = ["HTMX", "Tailwind", "Go", "Turso", "LibSQL", "Dockerfile"]
 [[Projects]]
 Title = "Dotfiles"
 Description = "Maintaining a comprehensive set of dotfiles to set up my working environment from scratch and serve as a backup of all my configurations. The project uses GNU Stow to manage configuration files in a single place and includes my configurations for Neovim, Tmux, and Zsh. It also features a Nix environment backup with all required packages and a bash script for automatic installation, allowing me to start working on any computer within minutes."
+Link = "https://github.com/alnav3/dotfiles"
 Languages = ["lua", "shell", "config"]
 [[Projects]]
 Title = "ZMK Configuration"
 Description = "Custom ZMK configuration for my split keyboard to meet my specific needs and optimize workflow. Enhances productivity by customizing key mappings and macros tailored to my requirements."
+Link = "https://github.com/alnav3/zmk-config"
 Languages = [ "C" ]
 [[Projects]]
 Title = "Gitproject"
 Description = "A ChatGPT plugin written in Go, designed for simple interaction with GitHub repositories. Enhances ChatGPT applications by fetching repository information, searching for files, and identifying issues directly within the code."
+Link = "https://github.com/alnav3/gitplugin"
 Languages = [ "Go", "Dockerfile" ]
 
 [[HomelabItems]]

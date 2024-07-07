@@ -49,6 +49,7 @@ type Project struct{
     Title string
     Description string
     Languages []string
+    Link string
 }
 
 type Homelab struct {
