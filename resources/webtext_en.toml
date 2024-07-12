@@ -149,5 +149,5 @@ ImgURL = "/img/homelab/HomeAssistant.svg"
 Title = "Uptime Kuma"
 Description = "A website monitoring tool I use to track the status of my services and ensure optimal performance."
 ImgURL = "/img/homelab/uptime-kuma.webp"
-Link = "https://uptime.alnav.dev/"
+Link = "https://uptime.alnav.dev/status/side-projects"
 
