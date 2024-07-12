@@ -145,4 +145,9 @@ Link = "https://git.alnav.dev/"
 Title = "Home Assistant"
 Description = "An open-source platform I use to automate and control smart home devices, creating a centralized IoT ecosystem."
 ImgURL = "/img/homelab/HomeAssistant.svg"
+[[HomelabItems]]
+Title = "Uptime Kuma"
+Description = "A website monitoring tool I use to track the status of my services and ensure optimal performance."
+ImgURL = "/img/homelab/uptime-kuma.webp"
+Link = "https://uptime.alnav.dev/"
 

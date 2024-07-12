@@ -118,4 +118,9 @@ ImgURL = "/img/homelab/gitea.png"
 Title = "Home Assistant"
 Description = "Una plataforma de código abierto que utilizo para automatizar y controlar dispositivos inteligentes del hogar, creando un ecosistema IoT centralizado."
 ImgURL = "/img/homelab/HomeAssistant.svg"
+[[HomelabItems]]
+Title = "Uptime Kuma"
+Description = "Una herramienta de monitoreo de webs que uso para asegurar el correcto funcionamiento de mis servicios y un rendimiento óptimo."
+ImgURL = "/img/homelab/uptime-kuma.webp"
+Link = "https://uptime.alnav.dev/"
 
