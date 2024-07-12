@@ -130,14 +130,17 @@ ImgURL = "/img/homelab/proxmox.png"
 Title = "Coolify"
 Description = "My go-to platform for deploying personal projects and Docker containers, providing a self-hosted alternative to cloud services."
 ImgURL = "/img/homelab/coolify.png"
+Link = "https://coolify.alnav.dev/"
 [[HomelabItems]]
 Title = "Penpot"
 Description = "An open-source design tool I use for prototyping web projects, enhancing my development workflow from concept to implementation."
 ImgURL = "/img/homelab/penpot.svg"
+Link = "https://penpot.alnav.dev/"
 [[HomelabItems]]
 Title = "Gitea"
 Description = "A lightweight, self-hosted Git service for managing my project repositories and version control needs."
 ImgURL = "/img/homelab/gitea.png"
+Link = "https://git.alnav.dev/"
 [[HomelabItems]]
 Title = "Home Assistant"
 Description = "An open-source platform I use to automate and control smart home devices, creating a centralized IoT ecosystem."

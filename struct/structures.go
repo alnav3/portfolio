@@ -56,5 +56,6 @@ type Homelab struct {
     Title string
     Description string
     ImgURL string
+    Link string
 }
 

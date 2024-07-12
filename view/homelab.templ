@@ -6,16 +6,26 @@ templ Homelab(homelabItems []structure.Homelab) {
     <section class="w-full">
         <div id="navbar-content" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 max-w-7xl mx-auto mt-8">
             for _, homelabItem := range homelabItems {
-                <a href="https://www.github.com" class="grid grid-cols-2 gap-6 bg-mantle rounded-lg mx-5 my-5
-                hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2">
-                    <img src={homelabItem.ImgURL} alt="Project 6" width="300" height="200"
-                    class="object-contain w-full h-full rounded-l-lg" />
-                    <div class="my-5 mr-5">
-                        <p class=" text-center text-xl font-bold tracking-tighter sm:text-2xl text-text">{homelabItem.Title}</p>
-                        <p class="text-center text-sm text-subtext0">{homelabItem.Description}</p>
-                    </div>
-                </a>
+                if homelabItem.Link != "" {
+                    <a href={templ.SafeURL(homelabItem.Link)} class="grid grid-cols-2 gap-6 bg-mantle rounded-lg mx-5 my-5
+                        hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2">
+                        @createcard(homelabItem)
+                    </a>
+                } else {
+                    <a class="grid grid-cols-2 gap-6 bg-mantle rounded-lg mx-5 my-5
+                        hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2">
+                        @createcard(homelabItem)
+                    </a>
+                }
             }
         </div>
     </section>
+}
+templ createcard(homelabItem structure.Homelab) {
+    <img src={homelabItem.ImgURL} alt="Project 6" width="300" height="200"
+        class="object-contain w-full h-full rounded-l-lg" />
+    <div class="my-5 mr-5">
+        <p class=" text-center text-xl font-bold tracking-tighter sm:text-2xl text-text">{homelabItem.Title}</p>
+        <p class="text-center text-sm text-subtext0">{homelabItem.Description}</p>
+    </div>
 }
