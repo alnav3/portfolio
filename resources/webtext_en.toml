@@ -117,7 +117,7 @@ Description = "Custom ZMK configuration for my split keyboard to meet my specifi
 Link = "https://github.com/alnav3/zmk-config"
 Languages = [ "C" ]
 [[Projects]]
-Title = "Gitproject"
+Title = "Gitplugin"
 Description = "A ChatGPT plugin written in Go, designed for simple interaction with GitHub repositories. Enhances ChatGPT applications by fetching repository information, searching for files, and identifying issues directly within the code."
 Link = "https://github.com/alnav3/gitplugin"
 Languages = [ "Go", "Dockerfile" ]

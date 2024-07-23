@@ -1,0 +1,28 @@
+package view
+
+import (
+        "structure"
+)
+
+templ Projects(projects []structure.Project) {
+    <div id="navbar-content" class="max-w-sm md:max-w-xl lg:max-w-3xl mx-auto mt-8">
+        for _, project := range projects {
+            <a href={templ.SafeURL(project.Link)} class="py-4 flex sm:grid-cols-3 max-w-sm md:max-w-xl lg:max-w-3xl mx-auto my-5 bg-mantle rounded-lg shadow space-x-5 ml-2 mr-2
+                hover:shadow-xl transition-transform duration-300 ease-in-out hover:-translate-y-2">
+                <div class="space-y-3 sm:col-span-2 my-0 mx-11">
+                    <p class=" text-xl font-bold sm:text-2xl text-text">{project.Title}</p>
+                    <p class="text-subtext0">{project.Description}</p>
+                    @languageTags(project.Languages)
+                </div>
+            </a>
+        }
+    </div>
+}
+
+templ languageTags(languages []string){
+    <div class="flex flex-wrap gap-5">
+        for _, language := range languages {
+            <span class="px-3 py-1 text-xs text-surface0 bg-mauve rounded-full">#{language}</span>
+        }
+    </div>
+}
