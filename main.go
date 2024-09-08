@@ -94,10 +94,10 @@ func main() {
 
     handleDirectory("/style/", "/img/", "/js/")
 
-    println("Servidor iniciado en el puerto 80")
+    println("Servidor iniciado en el puerto 8080")
 
-	// Inicia el servidor HTTP en el puerto 80
-	err := http.ListenAndServe(":80", nil)
+	// Inicia el servidor HTTP en el puerto 8080
+	err := http.ListenAndServe(":8080", nil)
 	if err != nil {
 		panic(err)
 	}
