@@ -36,7 +36,7 @@ jobs:
       uses: peter-evans/repository-dispatch@v1
       with:
         token: ${{ secrets.PAT }}
-        repository: ${{ github.actor }}/argocd-node-app-config
+        repository: ${{ github.actor }}/argocd-charts
         event-type: new-image
         client-payload: '{"image": "${{ github.actor }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}"}'
 
