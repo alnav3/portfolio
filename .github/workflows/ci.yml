@@ -38,5 +38,5 @@ jobs:
         token: ${{ secrets.PAT }}
         repository: ${{ github.actor }}/argocd-charts
         event-type: new-image
-        client-payload: '{"image": "${{ github.actor }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}"}'
+        client-payload: '{"image": "${{ github.actor }}/${{ env.IMAGE_NAME }}:${{ github.run_number }}", project: "portfolio"}'
 
